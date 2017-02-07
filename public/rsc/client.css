@@ -1,0 +1,90 @@
+
+@font-face {
+    font-family: lobster;
+    src: url("Lobster.otf") format("opentype");
+}
+
+html {
+    overflow-x: hidden;
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+body {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+#page-content {
+    display: block;
+    width: 100%;
+    margin: 10px;
+}
+
+#question-wrapper {
+    display: inline-block;
+    width: 50%;
+    height: 500px;
+    background-color: #FFF;
+}
+
+#reference-wrapper {
+    display: inline-block;
+    width: 40%;
+    height: 500px;
+    background-color: #FFF;
+}
+
+#reference, #questions {
+    height: 100%;
+    width: 100%;
+    border: gainsboro solid 1px;
+    box-shadow: 0px 0px 10px #BBB;
+    margin: 20px;
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+#grade-wrapper {
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+#grade {
+    display: block;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+}
+
+#grade > div {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+#grade .done {
+    width: 50%;
+    background-image: url("correct.png");
+}
+
+#grade .left {
+    background-image: url("incorrect.png");
+}

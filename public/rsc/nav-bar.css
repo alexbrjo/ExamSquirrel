@@ -1,0 +1,18 @@
+
+#nav-bar {
+    font-family: lobster;
+    font-size: 50pt;
+    padding: 50px;
+    width: 100%;
+    height: 40px;
+    
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+}
+
+.nav-label {
+    display: inline-block;
+    padding: 10px;
+}
