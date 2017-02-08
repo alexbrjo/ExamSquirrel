@@ -1,4 +1,4 @@
-package co.alexjo.examgrind.exam;
+package co.alexjo.examsquirrel.exam;
 
 import org.junit.Test;
 

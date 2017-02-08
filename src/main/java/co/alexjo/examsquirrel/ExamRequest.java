@@ -1,6 +1,6 @@
-package co.alexjo.examgrind;
+package co.alexjo.examsquirrel;
 
-import co.alexjo.examgrind.exam.EvalQuestion;
+import co.alexjo.examsquirrel.exam.EvalQuestion;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -15,20 +15,19 @@ import javax.ws.rs.Produces;
 public class ExamRequest {
     
     /** The course to use to generate exams */
-    Course course;
+    String course;
         
     /** 
      * Constructs a new ExamRequest 
      */
     public ExamRequest () {
-        course = new Course();
+        course = ExamGrind.py;
     }
     
     @GET
     @Produces("application/json")
     public String exam() {
-        String[] s = {""};
-        return course.getExam(s, 20, 1);
+        return course;
     }
     
     @PUT

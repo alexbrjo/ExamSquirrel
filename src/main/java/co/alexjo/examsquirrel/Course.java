@@ -1,9 +1,7 @@
-package co.alexjo.examgrind;
+package co.alexjo.examsquirrel;
 
-import co.alexjo.examgrind.exam.Exam;
-import co.alexjo.examgrind.exam.Question;
-import co.alexjo.examgrind.io.PropertiesIO;
-import co.alexjo.examgrind.io.QuestionIO;
+import co.alexjo.examsquirrel.exam.Exam;
+import co.alexjo.examsquirrel.exam.Question;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,44 +20,12 @@ public class Course {
     /** Questions sorted by topic */
     private HashMap<String, ArrayList<Question>> questionForTopic;
     
-    private Properties courseProperties;
         
     public Course () {
-        System.out.println(ExamGrind.class.getClassLoader().getResource("").getPath());
         File rsc = new File(ExamGrind.class.getClassLoader().getResource(RESOURCE_FOLDER).getFile());
         File[] files = rsc.listFiles();
         masterList = new ArrayList<>();
         questionForTopic = new HashMap();
-        courseProperties = null;
-        
-        for (File f : files) {
-            if (f.getName().equals(PROPERTIES_FILE)) {
-                if (courseProperties == null) {
-                    courseProperties = PropertiesIO.readPropertiesFile(f);
-                    break;
-                } else {
-                    throw new IllegalArgumentException("Multiple property files in course directory: " + rsc.getName());
-                }
-            }
-            // extract Questions from file
-            ArrayList<Question> tempQuestionList = QuestionIO.readQuestionsFile(f);
-            
-            // add to master list 
-            String topic = null;
-            for (Question q : tempQuestionList) {
-                if (topic == null) {
-                    topic = q.getTopic();
-                } else {
-                    if (!topic.equals(q.getTopic())) {
-                        throw new IllegalArgumentException("Multiple topics in question file: " + f.getName());
-                    }
-                }
-                
-                masterList.add(q);
-            }
-            
-            questionForTopic.put(topic, masterList);
-        }
         
         System.out.println("Course was successfully initialized with");
         System.out.println(masterList.size() + " questions loaded");
@@ -86,10 +52,6 @@ public class Course {
         Exam exam = new Exam(numberOfQuestions, masterList, seed);
         return exam.create();
     } 
-    
-    public Properties getCourseProperties () {
-        return courseProperties;
-    }
     
     /**
      * Gets the total number of questions loaded

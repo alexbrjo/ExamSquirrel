@@ -1,5 +1,6 @@
-package co.alexjo.examgrind.exam;
+package co.alexjo.examsquirrel.exam;
 
+import co.alexjo.examsquirrel.exam.Question;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;

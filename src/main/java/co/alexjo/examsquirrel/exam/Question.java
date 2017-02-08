@@ -1,4 +1,4 @@
-package co.alexjo.examgrind.exam;
+package co.alexjo.examsquirrel.exam;
 
 import java.util.ArrayList;
 import java.util.Arrays;

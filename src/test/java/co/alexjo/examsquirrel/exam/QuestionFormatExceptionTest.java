@@ -1,5 +1,6 @@
-package co.alexjo.examgrind.exam;
+package co.alexjo.examsquirrel.exam;
 
+import co.alexjo.examsquirrel.exam.QuestionFormatException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
