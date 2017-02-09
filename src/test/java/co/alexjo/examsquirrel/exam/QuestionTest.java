@@ -16,9 +16,9 @@ import org.junit.Before;
 public class QuestionTest {
     
     /** A valid id */
-    private String ID = "Math0";
+    private String ID = "FFFFFFFF";
     /** A valid topic */
-    private String TOPIC = "Exponents";
+    private String TOPIC = "Algebra/Exponents";
     /** A valid CONTENT */
     private String CONTENT = "What is ${a}<sup>${b}<sup> + ${c}";
     /** The choices of the question, index 0 is the answer */
@@ -78,7 +78,25 @@ public class QuestionTest {
      */
     @Test
     public void testGetId() {
+        // Test getting a valid Id
+        Question q1  = new Question();
+        q1.setId(ID);
+        assertEquals("Id modified value set", ID, q1.getId());
+        assertNull("Topic was initialized", q1.getTopic());
+        assertNull("Content was initialized", q1.getContent());
+        assertNotNull("Content wasn't initialized", q1.getChoices());
+        assertNotNull("Tips wasn't initialized", q1.getTips());
+        assertNotNull("Variation wasn't initialized", q1.getVariation());
         
+        Question q2  = new Question();
+        q2.setId("ABCD1234");
+        assertEquals("Id modified value set", ID, q2.getId());
+        assertNull("ID was initialized", q2.getId());
+        assertNull("Topic was initialized", q2.getTopic());
+        assertNull("Content was initialized", q2.getContent());
+        assertNotNull("Content wasn't initialized", q2.getChoices());
+        assertNotNull("Tips wasn't initialized", q2.getTips());
+        assertNotNull("Variation wasn't initialized", q2.getVariation());
     }
 
     /**

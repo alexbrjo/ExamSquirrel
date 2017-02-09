@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * The raw Question object. Has unevaluated.
+ * The Question document structure from a database. Has unevaluated Question
+ * data.
+ * 
+ * TODO
+ *      override .equals()
+ *      override .toHashCode()
+ * 
  * @author Alex Johnson
  */
 public class Question {
@@ -25,7 +31,7 @@ public class Question {
     private double[][] variation;
     
     /**
-     * Constructs a new Question
+     * Constructs a new blank Question
      */
     public Question () {
         super();
@@ -55,30 +61,59 @@ public class Question {
         setVariation(variation);
     }
     
+    /**
+     * Gets the id of the question.
+     * @return the id of the question
+     */
     public String getId () {
         return id;
     }
     
+    /**
+     * Gets the Course/Topic of tbe question.
+     * @return 
+     */
     public String getTopic () {
         return topic;
     }
     
+    /**
+     * Gets the content body of the question, with unevaluated JS parts.
+     * @return the content of the question
+     */
     public String getContent () {
         return content;
     }
     
+    /**
+     * The choices of the question
+     * @return the ArrayList of choices 
+     */
     public ArrayList<String> getChoices () {
         return choices;
     }
     
+    /**
+     * The tips of the question
+     * @return the ArrayList of Tips
+     */
     public ArrayList<String> getTips () {
         return tips;
     }
     
+    /**
+     * Gets the variation variables of the question.
+     * @return a 2d-double array of variation data
+     */
     public double[][] getVariation () {
         return variation;
     }
     
+    /**
+     * Sets the id of the question. a 32-bit hex-encoded number. 
+     * @param id the id to set the id to
+     * @throws IllegalArgumentException if the id is invalid
+     */
     public void setId (String id) {
         if (id == null || id.equals("")) {
             throw new IllegalArgumentException();

@@ -1,6 +1,5 @@
 package co.alexjo.examsquirrel.data;
 
-import static co.alexjo.examsquirrel.ExamGrind.py;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;

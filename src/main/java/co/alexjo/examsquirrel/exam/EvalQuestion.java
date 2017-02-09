@@ -1,7 +1,5 @@
 package co.alexjo.examsquirrel.exam;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -25,6 +23,7 @@ public class EvalQuestion extends Question {
     private char answer;
     
     private double personalRandom;
+    
     /**
      * Creates an EvalQuestion for a question.
      * @param q 
@@ -91,7 +90,7 @@ public class EvalQuestion extends Question {
      * @return a string of generated HTML
      */
     public String generate (int number) {
-        return (new GsonBuilder().setPrettyPrinting().create()).toJson((Question) this);
+        return "" + number;
     }
     
     public String evalEmbedded (String container, ScriptEngine js) throws QuestionFormatException {

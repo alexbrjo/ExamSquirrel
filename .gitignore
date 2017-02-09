@@ -9,8 +9,5 @@
 
 ## Config files ###
 /.nb-gradle/
-/gradle/*
-.gradle
-gradlew.bat
-gradlew
-
+/.gradle/*
+/config/*
