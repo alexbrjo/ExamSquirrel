@@ -11,3 +11,4 @@
 /.nb-gradle/
 /.gradle/*
 /config/*
+!gradle-wrapper.jar
