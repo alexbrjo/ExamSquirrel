@@ -1,1 +1,16 @@
-/target/
+### System files ###
+.DS_Store
+
+## Compiled files ###
+/build/
+*.class
+*.jar
+*.war
+
+## Config files ###
+/.nb-gradle/
+/gradle/*
+.gradle
+gradlew.bat
+gradlew
+
