@@ -31,17 +31,6 @@ public class Question {
     private double[][] variation;
     
     /**
-     * Constructs a new blank Question
-     */
-    public Question () {
-        super();
-        
-        variation = new double[1][3];
-        choices = new ArrayList<>();
-        tips = new ArrayList<>();
-    }
-    
-    /**
      * Creates a 
      * @param id The unique identification string of the question
      * @param topic The topic of the question
@@ -52,7 +41,8 @@ public class Question {
      */
     public Question (String id, String topic, String content, ArrayList<String> choices, 
             ArrayList<String> tips, double[][] variation) {
-        this();
+        super();
+        
         setId(id);
         setTopic(topic);
         setContent(content);
@@ -114,7 +104,7 @@ public class Question {
      * @param id the id to set the id to
      * @throws IllegalArgumentException if the id is invalid
      */
-    public void setId (String id) {
+    private void setId (String id) {
         if (id == null || id.equals("")) {
             throw new IllegalArgumentException();
         }
@@ -125,7 +115,7 @@ public class Question {
      * Set the Topic from a String.
      * @param topic the raw String to determine a topic from
      */
-    public void setTopic(String topic) {
+    private void setTopic(String topic) {
         if (topic == null || topic.equals("")) {
             throw new IllegalArgumentException();
         }
@@ -136,7 +126,7 @@ public class Question {
      * Sets the content text for the question
      * @param content the text for the question
      */
-    public void setContent(String content) {
+    private void setContent(String content) {
         if (content == null || content.equals("")) {
             throw new IllegalArgumentException();
         }
@@ -147,7 +137,7 @@ public class Question {
      * Sets the choices to given ArrayList<String>
      * @param choices the choices to set
      */
-    public void setChoices (ArrayList<String> choices) {
+    private void setChoices (ArrayList<String> choices) {
         if (choices == null) {
             throw new IllegalArgumentException();
         }
@@ -155,21 +145,10 @@ public class Question {
     }
     
     /**
-     * Adds a choice to the choice ArrayList
-     * @param choice the choice to add
-     */
-    public void addChoice (String choice) {
-        if (choice == null) {
-            throw new IllegalArgumentException();
-        }
-        choices.add(choice);
-    }
-    
-    /**
      * Sets the tips to given ArrayList<String>
      * @param tips the tips to set
      */
-    public void setTips (ArrayList<String> tips) {
+    private void setTips (ArrayList<String> tips) {
         if (tips == null) {
             throw new IllegalArgumentException();
         }
@@ -177,22 +156,11 @@ public class Question {
     }
     
     /**
-     * Adds a Question tip to the tips ArrayList
-     * @param tip the tip to add
-     */
-    public void addTip (String tip) {
-        if (tip == null || tip.endsWith(tip)) {
-            throw new IllegalArgumentException();
-        }
-        tips.add(tip);
-    }
-    
-    /**
      * Sets the variation of the Question.
      * @param d the Array of variation from a number, to a number  and by an 
      * interval.
      */
-    public void setVariation (double[][] d) {
+    private void setVariation (double[][] d) {
         if (d == null) {
             throw new IllegalArgumentException();
         }

@@ -1,7 +1,11 @@
 package co.alexjo.examsquirrel.exam;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Random;
+import org.bson.json.JsonWriter;
 
 /**
  * An exam
@@ -16,7 +20,7 @@ public class Exam {
     /** Questions to use */
     ArrayList<Question> rawQuestions;
     /** Questions to use */
-    ArrayList<EvalQuestion> questions;
+    ShuffledList<EvalQuestion> questions;
     
     private int seed;
     
@@ -53,41 +57,25 @@ public class Exam {
         Random random = new Random(seed);
         
         // evaluate questions
-        ArrayList<EvalQuestion> evaled = new ArrayList<>();
+        ShuffledList<EvalQuestion> evaled = new ShuffledList<>(seed);
         for (int i = 0; i < numberOfQuestions; i++) {
             evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble()));
         }
         
-        // scramble order of questions
-        ArrayList<EvalQuestion> scrambled = new ArrayList<>();
-        for (EvalQuestion q : evaled) {
-            scrambled.add(Math.round( (float) random.nextDouble() * scrambled.size()), q);
-        }
-        
-        questions = scrambled;
-    }
-    
-    /**
-     * Creates a JSON object (root is an Array) for the exam
-     * @return a String of JSON that is the generated test
-     */
-    public String create() {
-        String json = "[";
-        for (int i = 0; i < questions.size(); i++) {
-            EvalQuestion e = questions.get(i);
-            json += e.generate(i) + ((i != questions.size() - 1) ? "," : "]");
-        }
-        return json;
+        questions = evaled;
     }
     
     /**
      * Creates a JSON object (root is an Array) for the exam for a given seed
-     * @param seed the seed to use to generate the exam
-     * @return a String of JSON that is the generated test
      */
-    public String create(int seed) {
+    public void print(JsonWriter out) {
         generateExam(seed);
-        return create();
+        
+        out.writeStartArray();
+        for (EvalQuestion e : questions) {
+            e.print(out);
+        }
+        out.writeEndArray();
     }
     
     /**

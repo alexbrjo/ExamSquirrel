@@ -3,8 +3,10 @@ package co.alexjo.examsquirrel;
 import co.alexjo.examsquirrel.exam.Exam;
 import co.alexjo.examsquirrel.exam.Question;
 import java.io.File;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.bson.json.JsonWriter;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Course {
     
         
     public Course () {
-        File rsc = new File(ExamGrind.class.getClassLoader().getResource(RESOURCE_FOLDER).getFile());
+        File rsc = new File(SquirrelAPI.class.getClassLoader().getResource(RESOURCE_FOLDER).getFile());
         File[] files = rsc.listFiles();
         masterList = new ArrayList<>();
         questionForTopic = new HashMap();
@@ -48,9 +50,13 @@ public class Course {
             }
         }
         
-        //Exam exam = new Exam(numberOfQuestions, include, seed);
+        StringWriter writer = new StringWriter();
+        JsonWriter out = new JsonWriter(writer);
+        
         Exam exam = new Exam(numberOfQuestions, masterList, seed);
-        return exam.create();
+        exam.print(out);
+        
+        return writer.toString();
     } 
     
     /**

@@ -53,24 +53,23 @@ public class QuestionTest {
     @Test
     public void testNewQuestion() {
         
-        Question q1  = new Question();
+        Question q1  = new Question(ID, TOPIC, CONTENT, CHOICES, TIPS, VARIATION);
         assertNotNull("Question equals null", q1);
-        assertNull("ID was initialized", q1.getId());
-        assertNull("Topic was initialized", q1.getTopic());
-        assertNull("Content was initialized", q1.getContent());
-        assertNotNull("Content wasn't initialized", q1.getChoices());
-        assertNotNull("Tips wasn't initialized", q1.getTips());
-        assertNotNull("Variation wasn't initialized", q1.getVariation());
+        assertEquals("ID was initialized", ID, q1.getId());
+        assertEquals("Topic was initialized", TOPIC, q1.getTopic());
+        assertEquals("Content was initialized", CONTENT, q1.getContent());
+        assertEquals("Content wasn't initialized", CHOICES, q1.getChoices());
+        assertEquals("Tips wasn't initialized", TIPS, q1.getTips());
+        assertArrayEquals("Variation wasn't initialized",VARIATION, q1.getVariation());
         
-        Question q2  = new Question();
-        assertNotNull("Question equals null", q1);
-        assertNull("ID was initialized", q1.getId());
-        assertNull("Topic was initialized", q1.getTopic());
-        assertNull("Content was initialized", q1.getContent());
-        assertNotNull("Content wasn't initialized", q1.getChoices());
-        assertNotNull("Tips wasn't initialized", q1.getTips());
-        assertNotNull("Variation wasn't initialized", q1.getVariation());
-        
+        Question q2  = new Question("9ABCDEFG", TOPIC, CONTENT, CHOICES, TIPS, VARIATION);
+        assertNotNull("Question equals null", q2);
+        assertEquals("ID was initialized", "9ABCDEFG", q2.getId());
+        assertEquals("Topic was initialized", TOPIC, q2.getTopic());
+        assertEquals("Content was initialized", CONTENT, q2.getContent());
+        assertEquals("Content wasn't initialized", CHOICES, q2.getChoices());
+        assertEquals("Tips wasn't initialized", TIPS, q2.getTips());
+        assertArrayEquals("Variation wasn't initialized",VARIATION, q2.getVariation());
     }
 
     /**
@@ -78,25 +77,7 @@ public class QuestionTest {
      */
     @Test
     public void testGetId() {
-        // Test getting a valid Id
-        Question q1  = new Question();
-        q1.setId(ID);
-        assertEquals("Id modified value set", ID, q1.getId());
-        assertNull("Topic was initialized", q1.getTopic());
-        assertNull("Content was initialized", q1.getContent());
-        assertNotNull("Content wasn't initialized", q1.getChoices());
-        assertNotNull("Tips wasn't initialized", q1.getTips());
-        assertNotNull("Variation wasn't initialized", q1.getVariation());
         
-        Question q2  = new Question();
-        q2.setId("ABCD1234");
-        assertEquals("Id modified value set", ID, q2.getId());
-        assertNull("ID was initialized", q2.getId());
-        assertNull("Topic was initialized", q2.getTopic());
-        assertNull("Content was initialized", q2.getContent());
-        assertNotNull("Content wasn't initialized", q2.getChoices());
-        assertNotNull("Tips wasn't initialized", q2.getTips());
-        assertNotNull("Variation wasn't initialized", q2.getVariation());
     }
 
     /**

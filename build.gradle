@@ -34,9 +34,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.10' 
 }
 
-// borrowed from Dominik Schurmann
+// hard coded server path TODO find fix
 task run(dependsOn: 'war', type:Exec) {
-    workingDir "~/Server/glassfish/bin"
+    workingDir "/Users/alex/Server/glassfish/bin"
     commandLine "./asadmin"
     args "deploy", "--force=true", "${war.archivePath}"
 }

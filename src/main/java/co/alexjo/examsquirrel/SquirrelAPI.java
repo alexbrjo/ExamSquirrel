@@ -2,24 +2,17 @@ package co.alexjo.examsquirrel;
 
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import org.bson.Document;
 
 
 /**
- * The ExamGrind BackEnd Application
+ * The SquirrelAPI BackEnd Application. The root of the rest API
  * @author Alex Johnson
  */
 @ApplicationPath("")
-public class ExamGrind extends Application {
+public class SquirrelAPI extends Application {
     
     /** The course database */
     private DatabaseDriver courses;
@@ -34,7 +27,7 @@ public class ExamGrind extends Application {
      * Constructs a new ExamGrindAPI. A RESTful Api that serves questions, 
      * users and exams to the front end.
      */
-    public ExamGrind () {
+    public SquirrelAPI () {
         
         // load properties
         loadProperties();

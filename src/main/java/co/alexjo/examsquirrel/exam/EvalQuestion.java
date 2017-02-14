@@ -1,11 +1,11 @@
 package co.alexjo.examsquirrel.exam;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import org.bson.json.JsonWriter;
 
 /**
  * A EvalQuestion is a Question that is given a seed. Upon construction all
@@ -15,8 +15,11 @@ import javax.script.ScriptException;
  */
 public class EvalQuestion extends Question {
     
-    /** Feedback about Question formatting */
-    private String feedBack;
+    /** The text of the question */
+    private String evalContent;
+    /** The choices of the question, index 0 is the answer */
+    private ArrayList<String> evalChoices;
+    
     /** Variation variables from seed */
     private double[] vars;
     /** The answer of the question */
@@ -72,12 +75,11 @@ public class EvalQuestion extends Question {
             ScriptEngineManager manager = new ScriptEngineManager();
             ScriptEngine js = manager.getEngineByName("JavaScript");
 
-            setContent(evalEmbedded(getContent(), js));
+            evalContent = evalEmbedded(getContent(), js);
 
             for (int i = 0; i < initial.size(); i++) {
-                evaledChoices.add(evalEmbedded (initial.get(i), js));
+                evalChoices.add(evalEmbedded (initial.get(i), js));
             }
-            setChoices(evaledChoices);
             
         } catch (QuestionFormatException e) {
             throw new IllegalArgumentException("Invalid format for question " + getId());
@@ -85,12 +87,12 @@ public class EvalQuestion extends Question {
     } 
     
     /**
-     * Generates HTML for an Evaluated question.
-     * @param number the number of the question
+     * Writes Json for an Evaluated question.
+     * @param out the JsonWriter to write to
      * @return a string of generated HTML
      */
-    public String generate (int number) {
-        return "" + number;
+    public void print (JsonWriter out) {
+        //out.doWriteObjectId();
     }
     
     public String evalEmbedded (String container, ScriptEngine js) throws QuestionFormatException {

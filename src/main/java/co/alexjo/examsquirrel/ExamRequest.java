@@ -21,7 +21,7 @@ public class ExamRequest {
      * Constructs a new ExamRequest 
      */
     public ExamRequest () {
-        course = ExamGrind.py;
+        course = SquirrelAPI.py;
     }
     
     @GET

@@ -4,7 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <display-name>ExamGrind Jersey App</display-name>
+    <display-name>Exam Squirrel RESTful App</display-name>
 
     <servlet>
         <servlet-name>Jersey Web Application</servlet-name>
@@ -13,14 +13,14 @@
         </servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>co.alexjo.examgrind</param-value>
+            <param-value>co.alexjo.examsquirrel</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
         
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
-        <url-pattern>/ExamGrind/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
