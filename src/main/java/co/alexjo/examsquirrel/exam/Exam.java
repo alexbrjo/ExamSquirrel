@@ -20,7 +20,7 @@ public class Exam {
     /** Questions to use */
     ArrayList<Question> rawQuestions;
     /** Questions to use */
-    ShuffledList<EvalQuestion> questions;
+    ArrayList<EvalQuestion> questions;
     
     private int seed;
     
@@ -57,7 +57,7 @@ public class Exam {
         Random random = new Random(seed);
         
         // evaluate questions
-        ShuffledList<EvalQuestion> evaled = new ShuffledList<>(seed);
+        ArrayList<EvalQuestion> evaled = new ArrayList<>(seed);
         for (int i = 0; i < numberOfQuestions; i++) {
             evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble()));
         }
@@ -70,7 +70,7 @@ public class Exam {
      */
     public void print(JsonWriter out) {
         generateExam(seed);
-        
+        out.writeName("questions");
         out.writeStartArray();
         for (EvalQuestion e : questions) {
             e.print(out);
@@ -86,7 +86,7 @@ public class Exam {
      */
     private void setNumberOfQuestions (int numberOfQuestions) {
         if (numberOfQuestions < 0 || numberOfQuestions > MAX_QUESTIONS ||
-                numberOfQuestions >= rawQuestions.size()) {
+                numberOfQuestions > rawQuestions.size()) {
             throw new IllegalArgumentException("Invalid number of questions");
         }
         this.numberOfQuestions = numberOfQuestions;

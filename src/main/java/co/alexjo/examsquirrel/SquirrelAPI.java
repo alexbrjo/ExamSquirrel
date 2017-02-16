@@ -2,25 +2,27 @@ package co.alexjo.examsquirrel;
 
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
+import co.alexjo.examsquirrel.exam.Question;
 import java.util.Map;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 
 /**
  * The SquirrelAPI BackEnd Application. The root of the rest API
  * @author Alex Johnson
  */
-@ApplicationPath("")
-public class SquirrelAPI extends Application {
+@Path("/exam")
+public class SquirrelAPI {
     
     /** The course database */
-    private DatabaseDriver courses;
+    public DatabaseDriver courses;
     /** The users database */
-    private DatabaseDriver users;
-    
-    public static String py;
-    
+    public DatabaseDriver users;
+            
     private Map<String, String> prop;
     
     /**
@@ -38,17 +40,6 @@ public class SquirrelAPI extends Application {
                 address + ":" + port);
         
         setCourses(new DatabaseDriver(address, port, prop.get("db-course")));
-        py = courses.get();
-        
-        /*Collection<DB> databases = m.getUsedDatabases();
-        System.out.println(m.toString());
-        
-        for (DB db : databases) {
-            System.out.println("Found database " + db.getName());
-            if ( db.getName().equals(COURSE_DB_NAME) ) {
-                setCourses(db);
-            }
-        }*/
         
     }
     
@@ -81,5 +72,18 @@ public class SquirrelAPI extends Application {
         }
         // Do other database validation checks
         users = database;
+    }
+    
+    @GET
+    @Produces("application/json")
+    public String exam() {
+        Course c = new Course(courses);
+        return c.getExam(null, 20, 1);
+    }
+    
+    @PUT
+    @Consumes("text/plain")
+    public String help(String context) {
+        return "HELLO";
     }
 }

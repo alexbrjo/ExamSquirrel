@@ -1,5 +1,6 @@
 package co.alexjo.examsquirrel;
 
+import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.exam.Exam;
 import co.alexjo.examsquirrel.exam.Question;
 import java.io.File;
@@ -7,30 +8,22 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.bson.json.JsonWriter;
+import org.bson.types.ObjectId;
 
 /**
  *
  * @author Alex Johnson
  */
 public class Course {
-    /** The resources folder */
-    private static final String RESOURCE_FOLDER = "physics/";
-    /** The required properties file name */
-    private static final String PROPERTIES_FILE = "properties.json";
     /** All the Courses Topics */
     private ArrayList<Question> masterList;
     /** Questions sorted by topic */
     private HashMap<String, ArrayList<Question>> questionForTopic;
     
         
-    public Course () {
-        File rsc = new File(SquirrelAPI.class.getClassLoader().getResource(RESOURCE_FOLDER).getFile());
-        File[] files = rsc.listFiles();
-        masterList = new ArrayList<>();
+    public Course (DatabaseDriver dataBase) {
+        masterList = dataBase.get();
         questionForTopic = new HashMap();
-        
-        System.out.println("Course was successfully initialized with");
-        System.out.println(masterList.size() + " questions loaded");
     }
     
     /**
@@ -43,18 +36,19 @@ public class Course {
     public String getExam (String[] material, int numberOfQuestions, int seed) {
         
         // Material to cover in the exam
-        ArrayList<Question> include = new ArrayList<>();
+        /*ArrayList<Question> include = new ArrayList<>();
         for (String m : material) {
             if (questionForTopic.containsKey(m)) {
                 include.addAll(questionForTopic.get(m));
             }
-        }
+        }*/
         
         StringWriter writer = new StringWriter();
         JsonWriter out = new JsonWriter(writer);
-        
-        Exam exam = new Exam(numberOfQuestions, masterList, seed);
+        out.writeStartDocument();
+        Exam exam = new Exam(masterList.size(), masterList, seed);
         exam.print(out);
+        out.writeEndDocument();
         
         return writer.toString();
     } 

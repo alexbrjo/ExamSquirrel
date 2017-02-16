@@ -48,7 +48,7 @@ public class ShuffledList<T> implements Iterable<T> {
             random = new Random(seed);
         }
         // create ArrayList
-        list = new ArrayList();
+        list = new ArrayList<>();
         // By default, don't shuffle ever new time the list is iterated through
         shuffleOnNewIteration = false;
     }
