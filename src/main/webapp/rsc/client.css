@@ -20,71 +20,80 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
 }
 
 a {
     text-decoration: none;
 }
 
-#page-content {
+#main-content {
     display: block;
     width: 100%;
     margin: 10px;
+    margin-top: 40px
 }
 
 #question-wrapper {
     display: inline-block;
     width: 50%;
     height: 500px;
-    background-color: #FFF;
 }
 
-#reference-wrapper {
-    display: inline-block;
-    width: 40%;
-    height: 500px;
-    background-color: #FFF;
-}
-
-#reference, #questions {
-    height: 100%;
-    width: 100%;
+#questions {
+    height: 90%;
+    width: 90%;
     border: gainsboro solid 1px;
     box-shadow: 0px 0px 10px #BBB;
     margin: 20px;
     background-color: #FFF;
-    overflow: hidden;
-}
+}  
 
 #grade-wrapper {
     width: 100%;
-    left: 0;
-    top: 0;
+    height: 50px;
+    margin: 20px 0 20px 0;
 }
 
 #grade {
     display: block;
-    position: relative;
+    width: 80%;
     margin: auto;
-    width: 100%;
-    height: 10px;
-    overflow: hidden;
+    height: 50px;
 }
 
 #grade > div {
     display: block;
     position: absolute;
-    width: 100%;
-    height: 10px;
+    width: 80%;
+    height: 20px;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 #grade .done {
-    width: 50%;
+    width: 40%;
+    border-radius: 10px 0px 0px 10px;
     background-image: url("correct.png");
 }
 
 #grade .left {
     background-image: url("incorrect.png");
+}
+
+#reference-wrapper {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    vertical-align: top;
+}
+
+#reference {
+    height: 100%;
+    width: 100%;
+    border-top: solid 2px #90A0B0;
+    background-color: #708090;
+    margin: 0;
 }

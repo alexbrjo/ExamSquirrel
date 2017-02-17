@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
     +-----------------------------------------------------------------------+
-    | ExamGrind                         My Courses | My Exams | Profile (_) |
+    | ExamSquirrel                      My Courses | My Exams | Profile (_) |
     +-----------------------------------------------------------------------+
     | +-----------------------------------+  +----------------------------+ |
     | |1. some question test blah blah    |  |  F = k * (Q1 * Q2) / d^2   | |
@@ -22,30 +22,31 @@
 -->
 <html>
     <head>
-        <title>Title</title>
+        <title>Exam Squirrel</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="rsc/exam.css">
         <link rel="stylesheet" href="rsc/client.css">
         <link rel="stylesheet" href="rsc/nav-bar.css">
+        
+    <script type="text/javascript"  src="rsc/examMaker.js"></script>
     </head>
     <body>
-        <div id="grade-wrapper">
-            <div id="grade">
-                <div class="left"></div><div class="done"></div>
-            </div>
+        <div id="nav-bar">
+            Exam Squirrel
         </div>
-        <div id="page-content">
+        <div id="main-content">
             <div id="question-wrapper">
                 <div id="questions"></div>
             </div>
-            <!--div id="reference-wrapper">
-                <div id="reference"></div>
-            </div-->
+            <div id="grade-wrapper">
+                <div id="grade">
+                    <div class="left"></div><div class="done"></div>
+                </div>
+            </div>
         </div>
-        <div id="nav-bar">
-            Exam Grind
+        <div id="reference-wrapper">
+            <div id="reference"></div>
         </div>
-        <script type="text/javascript"  src="rsc/examMaker.js"></script>
     </body>
 </html>

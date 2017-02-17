@@ -42,23 +42,21 @@ public class DatabaseDriver {
     }
     
     public ArrayList<Question> get () {
-        String s = "";
         ArrayList<Question> questions = new ArrayList<>();
-        
+                
         MongoCollection c = dataBase.getCollection("physics");
         
         try (MongoCursor<Document> cursor = c.find().iterator()) {
             while (cursor.hasNext()) { 
                 Document o = cursor.next();
-                // TODO
                 String id = o.getString("id");
                 String topic = o.getString("topic");
                 String content = o.getString("content");
-                ArrayList<String> choices = new ArrayList<>();
-                ArrayList<String> tips = new ArrayList<>();
-                double[][] variation = o.get("variation", double[][].class);
+                ArrayList<String> choices = (ArrayList<String>) o.getOrDefault("choices", new ArrayList<String>());
+                ArrayList<String> tips = (ArrayList<String>) o.getOrDefault("tips", new ArrayList<String>());
                 
-                questions.add(new Question(id, topic, content, choices, tips, variation));
+                questions.add(new Question(id, topic, content, choices, tips, new double[1][2]));
+               
             }
         }
         

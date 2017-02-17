@@ -78,22 +78,13 @@ public class EvalQuestion extends Question {
             evalContent = evalEmbedded(getContent(), js);
 
             for (int i = 0; i < initial.size(); i++) {
-                evalChoices.add(evalEmbedded (initial.get(i), js));
+//                evalChoices.add(evalEmbedded (initial.get(i), js));
             }
             
         } catch (QuestionFormatException e) {
             throw new IllegalArgumentException("Invalid format for question " + getId());
         } 
     } 
-    
-    /**
-     * Writes Json for an Evaluated question.
-     * @param out the JsonWriter to write to
-     * @return a string of generated HTML
-     */
-    public void print (JsonWriter out) {
-        //out.doWriteObjectId();
-    }
     
     public String evalEmbedded (String container, ScriptEngine js) throws QuestionFormatException {
         // search entire String for scripts
@@ -154,4 +145,61 @@ public class EvalQuestion extends Question {
         
         return Math.round((raw - (raw % variation[2])) * 10) / 10;
     }
+    
+    /**
+     * Writes Json for an Evaluated question. Uses Json writer instead of 
+     * mapping library to better control what the user gets to see. Writes the 
+     * Question variables id, topic and tips and the EvalQuestion variables
+     * content, choices and variation.
+     * @param out the JsonWriter to write to
+     */
+    public void print (JsonWriter out) {
+        // start the Question object
+        out.writeStartDocument();
+        
+        // The unqiue id of the question, NEVER evaluated
+        out.writeName("id");
+        out.writeString(getId());
+        
+        // The topic of the question, NEVER evaluated
+        out.writeName("topic");
+        out.writeString(getTopic());
+        
+        // The content of the question, ALWAYS evaluated
+        out.writeName("content");
+        out.writeString(evalContent);
+        
+        // The choices of the question, ALWAYS evaluated
+        out.writeName("choices");
+        out.writeStartArray();
+        for (String choice : getChoices()) {
+            out.writeString(choice);
+        }
+        out.writeEndArray();
+        
+        // The tips of the question, NEVER evaluated
+        out.writeName("tips");
+        out.writeStartArray();
+        for (String tip : getTips()) {
+            out.writeString(tip);
+        }
+        out.writeEndArray();
+        
+        // The variation of the question, ALWAYS evaluated
+        out.writeName("variation");
+        out.writeStartArray();
+        for (double[] variable : getVariation()) {
+            out.writeStartArray();
+            for (double d : variable) {
+                out.writeDouble(d);
+            }
+            out.writeEndArray();
+        }
+        out.writeEndArray();
+        
+        // Ends the Question object
+        out.writeEndDocument();
+        
+    }
+    
 }

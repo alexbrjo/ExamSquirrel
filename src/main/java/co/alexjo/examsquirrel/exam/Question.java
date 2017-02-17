@@ -106,7 +106,7 @@ public class Question {
      */
     private void setId (String id) {
         if (id == null || id.equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("ID cannot be null or empty string");
         }
         this.id = id;
     }
@@ -117,7 +117,7 @@ public class Question {
      */
     private void setTopic(String topic) {
         if (topic == null || topic.equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Topic cannot be null or empty string");
         }
         this.topic = topic;
     }
@@ -128,7 +128,7 @@ public class Question {
      */
     private void setContent(String content) {
         if (content == null || content.equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Content cannot be null or empty string");
         }
         this.content = content;
     }
@@ -139,7 +139,7 @@ public class Question {
      */
     private void setChoices (ArrayList<String> choices) {
         if (choices == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("choices cannot be null");
         }
         this.choices = choices;
     }
@@ -150,7 +150,7 @@ public class Question {
      */
     private void setTips (ArrayList<String> tips) {
         if (tips == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("tips cannot be null");
         }
         this.tips = tips;
     }
@@ -162,7 +162,7 @@ public class Question {
      */
     private void setVariation (double[][] d) {
         if (d == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("variation cannot be null");
         }
         this.variation = d;
     }

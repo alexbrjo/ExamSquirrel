@@ -8,7 +8,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.bson.json.JsonWriter;
-import org.bson.types.ObjectId;
 
 /**
  *
@@ -43,8 +42,11 @@ public class Course {
             }
         }*/
         
+        // Create Writer
         StringWriter writer = new StringWriter();
         JsonWriter out = new JsonWriter(writer);
+        
+        // Write JSON
         out.writeStartDocument();
         Exam exam = new Exam(masterList.size(), masterList, seed);
         exam.print(out);

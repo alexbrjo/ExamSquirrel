@@ -45,7 +45,6 @@ public class Exam {
         rawQuestions = questions;
         setNumberOfQuestions(numberOfQuestions);
         setSeed(seed);
-        generateExam(seed);
     }
     
     /**
@@ -57,7 +56,7 @@ public class Exam {
         Random random = new Random(seed);
         
         // evaluate questions
-        ArrayList<EvalQuestion> evaled = new ArrayList<>(seed);
+        ArrayList<EvalQuestion> evaled = new ArrayList<>();
         for (int i = 0; i < numberOfQuestions; i++) {
             evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble()));
         }
@@ -69,6 +68,7 @@ public class Exam {
      * Creates a JSON object (root is an Array) for the exam for a given seed
      */
     public void print(JsonWriter out) {
+        
         generateExam(seed);
         out.writeName("questions");
         out.writeStartArray();
