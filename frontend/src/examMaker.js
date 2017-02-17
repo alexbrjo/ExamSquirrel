@@ -6,8 +6,11 @@ function clear() {
     document.getElementById("question").innerHTML = "";
 }
 
+var next;
+
 function build (s) {
     scriptStartTime = window.performance.now();
+    var exam = null;
     var questionArray = null;
     
     var seed = s || Math.floor(Math.random() * 1000);
@@ -25,15 +28,19 @@ function build (s) {
         if (jsonReq.readyState !== 4) return; 
         
         var genStartTime = window.performance.now();
-        questionArray = JSON.parse(jsonReq.responseText);
+        exam = JSON.parse(jsonReq.responseText);
+        questionArray = exam.questions;
         
         console.log("Loaded " + questionArray.length + " questions in " + 
                 Math.ceil(window.performance.now() - scriptStartTime)/1000 + 
                 "s using seed: " + seed);
         
-        for (var q = 1; q <= questionArray.length; q++) {
-            var a = buildQuestion(questionArray[q - 1], q);
-            document.getElementById("questions").appendChild(a);
+        var i = 0;
+        insertQuestion(questionArray[i]);
+        
+        next = function () {
+            i++;
+            insertQuestion(questionArray[i]);
         }
         
         console.log("JSON successfully parsed.\n" + questionArray.length + "/" + 
@@ -42,6 +49,17 @@ function build (s) {
     };
 
     jsonReq.send();
+}
+
+function insertQuestion (q) {
+    var qroot = document.getElementById("question");
+    qroot.children[0].innerHTML = q.content;
+    
+    var aroot = document.getElementById("answers");
+    var kids = aroot.children;
+    for (var i = 0; i < q.choices.length; i++) {
+        kids[i].innerHTML = q.choices[i];
+    }
 }
 
 function buildQuestion (json, n) {

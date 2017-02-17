@@ -11,5 +11,5 @@ buildscript {
 }
 
 apply plugin: "com.moowork.grunt"
-//grunt_build.dependsOn 'npmInstall'
-//grunt_build.dependsOn 'installGrunt'
+grunt_build.dependsOn 'npmInstall'
+grunt_build.dependsOn 'installGrunt'

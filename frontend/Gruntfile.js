@@ -34,9 +34,10 @@ module.exports = function (grunt) {
                 expand: true
             },
             dist:{
-                cwd: 'frontend/build/',
+                cwd: 'build/',
                 src: [ '*.min.js' ],
-                dest: '../backend/build/src/main/webapp/',
+                // Move minized Frontend Files to webapp folder
+                dest: '../backend/src/main/webapp/rsc',
                 expand: true
             }
         },
