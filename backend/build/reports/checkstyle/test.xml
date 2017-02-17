@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.9">
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/AppTest.java">
+<error line="5" severity="warning" message="Javadoc has empty description section." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="11" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/CourseTest.java">
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/PropertiesTest.java">
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/exam/EvalQuestionTest.java">
+<error line="5" severity="warning" message="Javadoc has empty description section." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="11" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/exam/QuestionFormatExceptionTest.java">
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/exam/QuestionTest.java">
+<error line="19" column="20" severity="warning" message="Name &apos;ID&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="21" column="20" severity="warning" message="Name &apos;TOPIC&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="23" column="20" severity="warning" message="Name &apos;CONTENT&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="25" column="31" severity="warning" message="Name &apos;CHOICES&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="27" column="31" severity="warning" message="Name &apos;TIPS&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="29" column="24" severity="warning" message="Name &apos;VARIATION&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="63" column="58" severity="warning" message="&apos;,&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="72" column="58" severity="warning" message="&apos;,&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/test/java/co/alexjo/examsquirrel/exam/ShuffledListTest.java">
+<error line="40" column="13" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="73" column="13" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+</file>
+</checkstyle>

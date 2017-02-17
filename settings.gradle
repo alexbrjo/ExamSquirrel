@@ -1,1 +1,3 @@
 rootProject.name = 'ExamSquirrel'
+include 'frontend'
+include 'backend'

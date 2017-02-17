@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.9">
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/Course.java">
+<error line="6" column="8" severity="warning" message="Unused import - java.io.File." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="12" severity="warning" message="Javadoc has empty description section." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+<error line="23" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="66" severity="warning" message="Javadoc has empty description section." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/ExamRequest.java">
+<error line="5" severity="warning" message="Javadoc has empty description section." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/SquirrelAPI.java">
+<error line="5" column="8" severity="warning" message="Unused import - co.alexjo.examsquirrel.exam.Question." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="77" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="84" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/data/DatabaseDriver.java">
+<error line="4" column="8" severity="warning" message="Unused import - com.mongodb.DBObject." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="11" column="8" severity="warning" message="Unused import - java.util.Arrays." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="23" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="44" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/data/PropertiesIO.java">
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/exam/EvalQuestion.java">
+<error line="3" column="8" severity="warning" message="Unused import - java.io.PrintWriter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="89" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/exam/Exam.java">
+<error line="3" column="8" severity="warning" message="Unused import - java.io.PrintStream." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="4" column="8" severity="warning" message="Unused import - java.io.PrintWriter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="5" column="8" severity="warning" message="Unused import - java.io.StringWriter." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="70" column="34" severity="warning" message="Expected @param tag for &apos;out&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/exam/Question.java">
+<error line="66" severity="warning" message="Expected an @return tag." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/exam/QuestionFormatException.java">
+<error line="7" column="55" severity="info" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/Users/alex/Projects/ExamSquirrel/backend/src/main/java/co/alexjo/examsquirrel/exam/ShuffledList.java">
+</file>
+</checkstyle>

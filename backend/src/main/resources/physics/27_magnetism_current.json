@@ -1,0 +1,30 @@
+[
+    {
+        "id": "Magnetism0",
+        "topic": "Magnetism",
+        "content": "A bar magnet produces a magnetic field B directed to the right at a point to the left of the magnet, as shown below. The poles of the magnet are identified as",
+        "choices": [
+            "X = N and Y = N", 
+            "X = S and Y = S", 
+            "X = S and Y = N", 
+            "X = N and Y = S", 
+            "X = N and Y is not a pole"
+        ],
+        "tips": [
+            "Remember "
+        ]
+    },
+    {
+        "id": "MagneticField0",
+        "topic": "Magnetism",
+        "content": "A planar 20-turn coil carries a current of 5 A in a uniform magnetic field B of magnitude 0.8 T. The dimensions of the coil are 0.1 m × 0.2 m. Given that the plane of the coil is parallel to B as shown below, the magnitude of the torque on the coil is",
+        "choices": [
+            "0.080 N m", 
+            "1.6 N m", 
+            "0.32 N m", 
+            "2.0 N m", 
+            "zero"
+        ],
+        "tips": [ "Remember" ]
+    }
+]

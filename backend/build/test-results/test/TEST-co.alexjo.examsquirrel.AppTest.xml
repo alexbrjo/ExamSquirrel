@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.alexjo.examsquirrel.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-02-17T20:30:48" hostname="Alexbrjo.local" time="1.376">
+  <properties/>
+  <testcase name="testApp" classname="co.alexjo.examsquirrel.AppTest" time="1.376"/>
+  <system-out><![CDATA[Successfully connected to MongoDB on localhost:27017
+{ "questions" : [{ "id" : "Induction0", 
+"topic" : "Electric Charge", "content" :
+ "A metal sphere is connected to the gro
+und. A plastic rod with a net positive c
+harge is brought near it without quite t
+ouching it. The ground connection is the
+n removed, while keeping the rod in plac
+e. Finally, the rod is removed. The best
+ description of what happens is that", "
+choices" : ["The sphere has a negative n
+et charge", "The sphere has zero net cha
+rge and every part of its surface is neu
+tral", "The sphere has zero net charge b
+ut induced charges are on the surface wi
+th the negative induced charge closest t
+o the rod", "The sphere has zero net cha
+rge but induced charges are on the surfa
+ce with the positive induced charge clos
+est to the rod", "The sphere has a posit
+ive net charge"], "tips" : ["Remember ch
+arging can happen by induction and condu
+ction."], "variation" : [[0.0, 0.0]] }, 
+{ "id" : "StaticFriction0", "topic" : "E
+lectric Charge", "content" : "A neutral 
+plastic rod is rubbed with a neutral pie
+ce of fur. If -1.0×10<sup>12</sup> elect
+rons are transferred to the rod by frict
+ion, the charge on each item is:", "choi
+ces" : ["Rod: ${a * -0.16}&mu;C; Fur: ${
+a * 0.16}&mu;C", "Rod: ${a * -0.16}&mu;C
+; Fur: 0&mu;C", "Rod: ${a * 0.16}&mu;C; 
+Fur: 0&mu;C", "Rod: ${a * -0.08}&mu;C; F
+ur: ${a * 0.08}&mu;C", "Rod: ${a * 0.16}
+&mu;C; Fur: ${-a * 0.16}&mu;C"], "tips" 
+: [], "variation" : [[0.0, 0.0]] }, { "i
+d" : "StaticFriction1", "topic" : "Elect
+ric Charge", "content" : "A person scuff
+s her feet on a wool rug on a dry day, a
+ccumulating a net charge of −160&mu;C. T
+he number of excess electrons that she a
+ccumulates is", "choices" : ["−1.0×10<su
+p>14</sup> ", "1.0×10<sup>15</sup> ", "−
+1.0×10<sup>15</sup> (i.e., electrons are
+ lost, not accumulated)", "2.0×10<sup>15
+</sup> ", "−2.0×10<sup>15</sup> "], "tip
+s" : [], "variation" : [[0.0, 0.0]] }, {
+ "id" : "Conduction0", "topic" : "Electr
+ic Charge", "content" : "A positive obje
+ct touches a neutral electroscope, and t
+he leaves separate. The object is remove
+d and the leaves remain separated. Then 
+a negative object is brought near the el
+ectroscope, but does not touch it. What 
+happens to the leaves?", "choices" : ["T
+hey move closer together.", "They separa
+te further.", "They are unaffected.", "T
+he question cannot be answered without f
+urther information.", "They fold back ag
+anist the electroscope."], "tips" : [], 
+"variation" : [[0.0, 0.0]] }, { "id" : "
+Induction0", "topic" : "Electric Charge"
+, "content" : "A neutral piece of metal 
+contains exactly 6×10<sup>24</sup> elect
+rons and an equal number of protons. If 
+we add -1.0×10<sup>13</sup> electrons by
+ induction, the sphere’s net charge will
+ be", "choices" : ["${a * -0.625}&mu;C",
+ "${a * 0.625}&mu;C", "${a * 0.9375}&mu;
+C", "${a * -0.9375}&mu;C", "${a * 0.9375
+}&mu;C"], "tips" : [], "variation" : [[0
+.0, 0.0]] }, { "id" : "FieldFromForce0",
+ "topic" : "Electric Field", "content" :
+ "A negative 50&mu;C point charge is pla
+ced at a point P, where it experiences a
+ net electrostatic force of 100N in the 
+positive x direction. The electric field
+ at P is", "choices" : ["${2.0}×10<sup>6
+</sup>N/C in the negative x direction ",
+ "${2.0}×10<sup>6</sup>N/C in the positi
+ve x direction ", "${5.0}×10<sup>−3</sup
+>N/C in the negative x direction ", "${5
+.0}×10<sup>−3</sup>N/C in the positive x
+ direction", "${5.0}×10<sup>−7</sup>N/C 
+in the positive x direction"], "tips" : 
+["Remember qE = F"], "variation" : [[0.0
+, 0.0]] }, { "id" : "ParallelPlatesField
+0", "topic" : "Electric Field", "content
+" : "An electron with velocity v<sub>0</
+sub> enters a region of uniform electric
+ field E as shown below. It travels para
+llel to E for a distance d, then comes t
+o rest. The magnitude of the electric fi
+eld is", "choices" : ["E = mv<sub>0</sub
+> / ed", "E = ev<sub>0</sub><sup>2</sup>
+ / md", "E = ed<sub>0</sub><sup>2</sup> 
+/ 2m", "E = m<sub>0</sub><sup>2</sup> / 
+ed", "E = m<sub>0</sub><sup>2</sup> / (2
+ed)"], "tips" : ["Remember qE = F"], "va
+riation" : [[0.0, 0.0]] }, { "id" : "Arc
+QuartersOfCharge0", "topic" : "Electric 
+Field", "content" : "Charge that is unif
+ormly distributed over one quarter arc o
+f a circle produces a field of magnitude
+ E<sub>1</sub> at the center of the arc.
+ In the diagram below, the heavy solid l
+ines represent positively charged arcs, 
+the broken heavy lines negatively charge
+d arcs, and the light lines neutral arcs
+. The magnitude of the charge is the sam
+e on the positively and negatively charg
+ed arcs. The diagram that produces the l
+argest electric field at the center of t
+he circle is", "choices" : ["A", "B", "C
+", "D", "C"], "tips" : ["Electric field 
+lines always point from positive to nega
+tive", "You can use parallelism to simip
+ly the problem"], "variation" : [[0.0, 0
+.0]] }, { "id" : "FieldFromVoltage0", "t
+opic" : "Electric Field", "content" : "A
+ 35 cm diameter conducting sphere is cha
+rged to +700 V relative to V = 0 at infi
+nity. The electric field at the surface 
+of the sphere is", "choices" : ["2.0×10<
+sup>3</sup> N/C directed outward", "2.0×
+10<sup>3</sup> N/C directed inward", "4.
+5×10<sup>3</sup> N/C directed outward", 
+"4.5×10<sup>3</sup> N/C directed inward"
+, "180 N/C directed outward"], "tips" : 
+["Electric field lines always point from
+ positive to negative"], "variation" : [
+[0.0, 0.0]] }, { "id" : "1DPointChargesF
+orce0", "topic" : "Electric Force", "con
+tent" : "Four point charges lie on the x
+-axis at x=−0.3m, 0m, 0.3m and 0.6m as s
+hown below.The magnitude of the net forc
+e on the 30 μC charge at x = 0 is", "cho
+ices" : ["${30}N", "${150}N", "${90}N", 
+"${60}N", "${120}N"], "tips" : ["Make su
+re you check your signs and constant val
+ues.", "Use Coulomb's law to determine t
+he Force from each charge.", "Use vector
+ addition to determine the net Force."],
+ "variation" : [[0.0, 0.0]] }, { "id" : 
+"GuassLaw0", "topic" : "Electric Flux", 
+"content" : "A thin wire is charged unif
+ormly with a linear charge density of &l
+ambda;. A closed cylindrical Gaussian su
+rface is centered in the wire as shown (
+picture). Its radius is r and its length
+ is L. Let E denote the magnitude of the
+ field at the surface of the cylinder. A
+pplying Gauss’ Law to this closed surfac
+e gives", "choices" : ["E(2&pi;rL) = (&l
+ambda;L)/&epsilon;<sub>0</sub>", "E(&pi;
+r<sup>2</sup>) = (&lambda;L)/&epsilon;<s
+ub>0</sub>", "E(&pi;r<sup>2</sup>L) = (&
+lambda;&pi;r<sup>2</sup>)/&epsilon;<sub>
+0</sub>", "E(rL) = (&lambda;L)/&epsilon;
+<sub>0</sub>", "E(&pi;r<sup>2</sup>L) = 
+(&lambda;L)/&epsilon;<sub>0</sub>"], "ti
+ps" : ["Remember flux equals Q<sub>encl<
+/sub>/&epsilon;<sub>0</sub>"], "variatio
+n" : [[0.0, 0.0]] }, { "id" : "GuassLaw1
+", "topic" : "Electric Flux", "content" 
+: "Three point charges are located as sh
+own. A Gaussian surface S encloses two o
+f the charges. According to Gauss’ Law, 
+the net electric flux through S is", "ch
+oices" : ["4Q<sub>encl</sub>/&epsilon;<s
+ub>0</sub>", "3Q<sub>encl</sub>/&epsilon
+;<sub>0</sub>", "Q<sub>encl</sub>/&epsil
+on;<sub>0</sub>", "6Q<sub>encl</sub>/&ep
+silon;<sub>0</sub>", "-Q<sub>encl</sub>/
+&epsilon;<sub>0</sub>"], "tips" : ["Reme
+mber flux equals Q<sub>encl</sub>/&epsil
+on;<sub>0</sub>"], "variation" : [[0.0, 
+0.0]] }, { "id" : "GuassLaw2", "topic" :
+ "Electric Flux", "content" : "A uniform
+ electric field of magnitude 5000 N/C is
+ directed perpendicular to a rectangular
+ surface of area 0.50 m<sup>2</sup>. The
+ electric flux through this surface is",
+ "choices" : ["zero", "2500 N m<sup>2</s
+up>/C", "1000 N m<sup>2</sup>/C", "1.0×1
+0<sup>-4</sup> N m<sup>2</sup>/C", "1.0×
+10<sup>4</sup> N m<sup>2</sup>/C"], "tip
+s" : ["Remember flux equals Q<sub>encl</
+sub>/&epsilon;<sub>0</sub>"], "variation
+" : [[0.0, 0.0]] }, { "id" : "ElectricPo
+tientalEnergy0", "topic" : "Electric Pot
+iental Energy", "content" : "A proton of
+ charge +e is located at the origin. The
+ amount of work necessary to bring an el
+ectron from a great distance to within 2
+ × 10<sup>−10</sup> m of the proton is",
+ "choices" : ["2.8×10<sup>−18</sup>J", "
+-2.8×10<sup>−18</sup>J", "1.2×10<sup>−18
+</sup>J", "-1.2×10<sup>−18</sup>J", "-6.
+0×10<sup>−19</sup>J"], "tips" : [""], "v
+ariation" : [[0.0, 0.0]] }, { "id" : "Co
+nductingSphereVoltage0", "topic" : "Elec
+tric Potiential", "content" : "A 35 cm d
+iameter conducting sphere is charged to 
++700 V relative to V = 0 at infinity. Th
+e electric field at the surface of the s
+phere is", "choices" : ["2.0×10<sup>3</s
+up>N/C directed outward ", "2.0×10<sup>3
+</sup>N/C directed inward ", "2.0×10<sup
+>3</sup>N/C directed inward ", "4.5×10<s
+up>3</sup>N/C directed inward ", "180 N/
+C directed outward"], "tips" : ["Make su
+re you check your signs and constant val
+ues.", "Use Coulomb's law to determine t
+he Force from each charge.", "Use vector
+ addition to determine the net Force."],
+ "variation" : [[0.0, 0.0]] }, { "id" : 
+"Electrodes0", "topic" : "Resistance", "
+content" : "A copper wire of length L an
+d cross sectional area A is cut lengthwi
+se into 8 identical wires also of length
+ L but each of area A/8. If the resistan
+ce of the original wire is R, the resist
+ance of each of the 8 wires is", "choice
+s" : ["R/8", "4R", "R/4", "64R", "8R"], 
+"tips" : ["V = IR"], "variation" : [[0.0
+, 0.0]] }, { "id" : "Electrodes0", "topi
+c" : "Resistance", "content" : "Two resi
+stors are connected in series as shown b
+elow. If the voltage difference (V<sub>A
+</sub> − V<sub>B</sub>) = 20 V, the magn
+itude and direction of the current in th
+e 2 $omega; resistor is", "choices" : ["
+4 A to the right (from A to B)", "17 A t
+o the right (from A to B)", "4 A to the 
+left (from B to A)", "17 A to the left (
+from B to A)", "3.3 A to the right (from
+ A to B)"], "tips" : ["V = IR"], "variat
+ion" : [[0.0, 0.0]] }, { "id" : "Electro
+des0", "topic" : "Electric Current", "co
+ntent" : "A spark jumps between two elec
+trodes, transferring a charge of 5 &mu;C
+ in 2×10<sup>−3</sup>s. The constant cur
+rent I that would transfer the same char
+ge in the same time is", "choices" : ["8
+00 A", "400 A", "200 A", "2.5×10<sup>−3<
+/sup> A", "1.0×10<sup>−8</sup> A"], "tip
+s" : ["V = IR"], "variation" : [[0.0, 0.
+0]] }, { "id" : "VoltageDisapation0", "t
+opic" : "Electric Current", "content" : 
+"A hot plate is made from a coil with a 
+resistance R = 20 &mu;. When operated wi
+th a voltage of 100 V, the power it diss
+ipates is", "choices" : ["5 W", "500 W",
+ "2000 W", "2500 W", "2×10<sup>5</sup> W
+"], "tips" : ["V = IR"], "variation" : [
+[0.0, 0.0]] }, { "id" : "RCcircuit0", "t
+opic" : "Electric Current", "content" : 
+"The resistor and capacitor in a series 
+RC circuit have values R = 4000 &omega; 
+and C = 5 &mu;F, respectively. The capac
+itor is charged by a 20 V battery. The t
+ime constant for charging is", "choices"
+ : ["&tau; = 4.0 s", "&tau; = 8.0×10<sup
+>8</sup> s", "&tau; = 1.3×10<sup>−9</sup
+> s", "&tau; = 100 s", "&tau; = 0.020 s"
+], "tips" : ["V = IR"], "variation" : [[
+0.0, 0.0]] }, { "id" : "Electrodes0", "t
+opic" : "Resistance", "content" : "A cop
+per wire of length L and cross sectional
+ area A is cut lengthwise into 8 identic
+al wires also of length L but each of ar
+ea A/8. If the resistance of the origina
+l wire is R, the resistance of each of t
+he 8 wires is", "choices" : ["R/8", "4R"
+, "R/4", "64R", "8R"], "tips" : ["V = IR
+"], "variation" : [[0.0, 0.0]] }, { "id"
+ : "Electrodes0", "topic" : "Resistance"
+, "content" : "Two resistors are connect
+ed in series as shown below. If the volt
+age difference (V<sub>A</sub> − V<sub>B<
+/sub>) = 20 V, the magnitude and directi
+on of the current in the 2 $omega; resis
+tor is", "choices" : ["4 A to the right 
+(from A to B)", "17 A to the right (from
+ A to B)", "4 A to the left (from B to A
+)", "17 A to the left (from B to A)", "3
+.3 A to the right (from A to B)"], "tips
+" : ["V = IR"], "variation" : [[0.0, 0.0
+]] }, { "id" : "MagneticFieldFromStraigh
+tCurrent0", "topic" : "Magnetic Field", 
+"content" : "A straight wire carries a 2
+0 A current in a uniform magnetic field 
+B of magnitude 0.5 T. B is directed at 5
+3° to the current, as shown. The magnitu
+de of the force on a 5 m long segment of
+ the wire is", "choices" : ["40 N", "30 
+N", "50 N", "6.0 N", "8.0 N"], "tips" : 
+["Remember"], "variation" : [[0.0, 0.0]]
+ }, { "id" : "MagneticFieldFromCurrentLo
+op0", "topic" : "Magnetic Field", "conte
+nt" : "A circular loop of radius r = 0.1
+ m is carrying a current of 40 A. The ma
+gnetic field at the center of the loop i
+s", "choices" : ["6.0×10<sup>−5</sup> T"
+, "7.2×10<sup>−3</sup> T", "1.4×10<sup>−
+2</sup> T", "1.3×10<sup>−4</sup> T", "2.
+5×10<sup>−4</sup> T"], "tips" : ["Rememb
+er"], "variation" : [[0.0, 0.0]] }, { "i
+d" : "MagneticField0", "topic" : "Magnet
+ic Force", "content" : "A proton (q = 1.
+6×10<sup>-19</sup> C) is traveling with 
+a velocity v = 2.0×10<sup>6</sup> m/s pa
+rallel to a uniform magnetic field B of 
+magnitude 0.5 T. The magnetic force on t
+he proton is", "choices" : ["8.0×10<sup>
+−18</sup> N", "0 N", "5.6×10<sup>−13</su
+p> N", "1.0×10<sup>6</sup> N", "3.2×10<s
+up>−13</sup> N"], "tips" : ["Remember"],
+ "variation" : [[0.0, 0.0]] }, { "id" : 
+"Magnetic_Force0", "topic" : "Magnetic F
+orce", "content" : "A straight wire carr
+ies a 20 A current in a uniform magnetic
+ field B of magnitude 0.5 T. B is direct
+ed at 53° to the current, as shown. The 
+magnitude of the force on a 5 m long seg
+ment of the wire is", "choices" : ["40 N
+", "30 N", "50 N", "6.0 N", "8.0 N"], "t
+ips" : ["Remember"], "variation" : [[0.0
+, 0.0]] }, { "id" : "MagneticField0", "t
+opic" : "Magnetic Force", "content" : "T
+wo infinite straight wires carry current
+s of 30 and 40 A, respectively, in the d
+irections shown below. They are parallel
+, and separated by 0.05 m. The force on 
+a 2 m long segment of the wire carrying 
+40 A is", "choices" : ["9.6×10<sup>−3</s
+up> N, to the right", "9.6×10<sup>−3</su
+p> N, to the left", "94.8×10<sup>−3</sup
+> N, to the left", "4.8×10<sup>−3</sup> 
+N, to the right", "zero"], "tips" : ["Re
+member"], "variation" : [[0.0, 0.0]] }, 
+{ "id" : "Magnetism0", "topic" : "Magnet
+ism", "content" : "A bar magnet produces
+ a magnetic field B directed to the righ
+t at a point to the left of the magnet, 
+as shown below. The poles of the magnet 
+are identified as", "choices" : ["X = N 
+and Y = N", "X = S and Y = S", "X = S an
+d Y = N", "X = N and Y = S", "X = N and 
+Y is not a pole"], "tips" : ["Remember "
+], "variation" : [[0.0, 0.0]] }, { "id" 
+: "MagneticField0", "topic" : "Magnetism
+", "content" : "A planar 20-turn coil ca
+rries a current of 5 A in a uniform magn
+etic field B of magnitude 0.8 T. The dim
+ensions of the coil are 0.1 m × 0.2 m. G
+iven that the plane of the coil is paral
+lel to B as shown below, the magnitude o
+f the torque on the coil is", "choices" 
+: ["0.080 N m", "1.6 N m", "0.32 N m", "
+2.0 N m", "zero"], "tips" : ["Remember"]
+]]></system-out>
+  <system-err><![CDATA[Feb 17, 2017 3:30:48 PM com.mongodb.diagnostics.logging.JULLogger log
+INFO: Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+Feb 17, 2017 3:30:48 PM com.mongodb.diagnostics.logging.JULLogger log
+INFO: No server chosen by ReadPreferenceServerSelector{readPreference=primary} from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, all=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+Feb 17, 2017 3:30:48 PM com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:1, serverValue:17}] to localhost:27017
+Feb 17, 2017 3:30:48 PM com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 1]}, minWireVersion=0, maxWireVersion=5, electionId=null, maxDocumentSize=16777216, roundTripTimeNanos=616343}
+Feb 17, 2017 3:30:48 PM com.mongodb.diagnostics.logging.JULLogger log
+INFO: Opened connection [connectionId{localValue:2, serverValue:18}] to localhost:27017
+]]></system-err>
+</testsuite>
