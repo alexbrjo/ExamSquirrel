@@ -21,7 +21,7 @@ public class Course {
     
         
     public Course (DatabaseDriver dataBase) {
-        masterList = dataBase.get();
+        masterList = dataBase.getAll("physics", "", "");
         questionForTopic = new HashMap();
     }
     

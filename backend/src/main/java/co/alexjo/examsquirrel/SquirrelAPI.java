@@ -1,8 +1,8 @@
 package co.alexjo.examsquirrel;
 
 import co.alexjo.examsquirrel.data.DatabaseDriver;
+import co.alexjo.examsquirrel.data.MongoDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
-import co.alexjo.examsquirrel.exam.Question;
 import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -39,7 +39,7 @@ public class SquirrelAPI {
         System.out.println("Successfully connected to MongoDB on " + 
                 address + ":" + port);
         
-        setCourses(new DatabaseDriver(address, port, prop.get("db-course")));
+        setCourses(new MongoDriver(address, port, prop.get("db-course")));
         
     }
     

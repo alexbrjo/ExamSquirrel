@@ -1,65 +1,34 @@
 package co.alexjo.examsquirrel.data;
 
 import co.alexjo.examsquirrel.exam.Question;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoException;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
-import java.util.Arrays;
-import org.bson.Document;
 
 /**
  * Wraps all basic Database functionality. Ensures that migration to other 
  * Database software can be done with minimal effort.
  * @author Alex Johnson
  */
-public class DatabaseDriver {
-    
-    MongoDatabase dataBase;
-    
-    public DatabaseDriver (String address, int port, String name) {
-        dataBase = connect(address, port, name);
-    }
+public interface DatabaseDriver {
     
     /**
-     * Tries to connect to a MongoDB server at a specified port and address
-     * @param address
-     * @param port
-     * @param name
-     * @return 
+     * Gets all the Questions that for the given JSON name matches the given 
+     * pattern.
+     * @param collection the collection to query
+     * @param name the JSON name to match
+     * @param pattern the Regex pattern that the value must match 
+     * @return an ArrayList of all objects that match the pattern
      */
-    private MongoDatabase connect (String address, int port, String name) {
-        MongoClient client;
-        try {
-            client = new MongoClient(address, port);
-        } catch (MongoException e) {
-            throw new RuntimeException();
-        }
-        return client.getDatabase(name);
-    }
+    public ArrayList<Question> getAll (String collection, String name, String pattern);
     
-    public ArrayList<Question> get () {
-        ArrayList<Question> questions = new ArrayList<>();
-                
-        MongoCollection c = dataBase.getCollection("physics");
-        
-        try (MongoCursor<Document> cursor = c.find().iterator()) {
-            while (cursor.hasNext()) { 
-                Document o = cursor.next();
-                String id = o.getString("id");
-                String topic = o.getString("topic");
-                String content = o.getString("content");
-                ArrayList<String> choices = (ArrayList<String>) o.getOrDefault("choices", new ArrayList<String>());
-                ArrayList<String> tips = (ArrayList<String>) o.getOrDefault("tips", new ArrayList<String>());
-                
-                questions.add(new Question(id, topic, content, choices, tips, new double[1][2]));
-               
-            }
-        }
-        
-        return questions;
-    }
+    /**
+     * Gets all the Questions that for the given JSON name matches the given 
+     * pattern.
+     * @param collection the collection to query
+     * @param name the JSON name to match
+     * @param pattern the Regex pattern that the value must match 
+     * @param n the number of Questions to get
+     * @return the questions for 
+     */
+    public ArrayList<Question> pick (String collection, String name, 
+            String pattern, int n);
 }
