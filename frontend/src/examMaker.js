@@ -1,12 +1,12 @@
 /**
  * Defines a request to the API. 
  */
-function ApiRequest () {
+function ApiRequest (SEVLET_URL, callback) {
     var exam = null;
     var questionArray = null;
     
     var jsonReq = new XMLHttpRequest();
-    jsonReq.open('GET', SEVLET_URL + seed);
+    jsonReq.open('GET', SEVLET_URL);
 
     jsonReq.onreadystatechange = function() {
         /*
@@ -22,21 +22,7 @@ function ApiRequest () {
         exam = JSON.parse(jsonReq.responseText);
         questionArray = exam.questions;
         
-        console.log("Loaded " + questionArray.length + " questions in " + 
-                Math.ceil(window.performance.now() - scriptStartTime)/1000 + 
-                "s using seed: " + seed);
-        
-        var i = 0;
-        insertQuestion(questionArray[i]);
-        
-        next = function () {
-            i++;
-            insertQuestion(questionArray[i]);
-        }
-        
-        console.log("JSON successfully parsed.\n" + questionArray.length + "/" + 
-                questionArray.length + " questions in " +  
-                Math.ceil(window.performance.now() - genStartTime)/1000 + "s");
+        callback(questionArray);
     };
 
     jsonReq.send();

@@ -7,14 +7,19 @@ function Squirrel () {
     this.questionList = [];
     this.currentQuestion = -1;
     var scriptStartTime = window.performance.now();
-    var SEVLET_URL = 'api/exam?seed=';
+    var SEVLET_URL = 'api/exam?seed=1';
     
     /**
      * Loads a problem set from the API and uses it to start an exam
      * @param {type} user the owner of the problem set
      * @param {String} set the problem set to request 
      */
-    this.exam = function(user, set) {}
+    this.exam = function(user, set) {
+        var t = this;
+        new ApiRequest(SEVLET_URL, function(q) {
+            t.questionList = q;
+        });
+    }
     
     /**
      * Loads a problem set from the API and uses it for practice
@@ -27,7 +32,9 @@ function Squirrel () {
         
     }
     
-    this.insertQuestion = function (q) {
+    this.next = function () {
+        this.currentQuestion++;
+        var q = this.questionList[this.currentQuestion];
         var qroot = document.getElementById("question");
         qroot.children[0].innerHTML = q.content;
 
@@ -38,3 +45,5 @@ function Squirrel () {
         }
     }
 }
+
+var s = new Squirrel();

@@ -3,7 +3,6 @@ package co.alexjo.examsquirrel;
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.exam.Exam;
 import co.alexjo.examsquirrel.exam.Question;
-import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;

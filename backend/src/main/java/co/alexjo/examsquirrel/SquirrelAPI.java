@@ -10,7 +10,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-
 /**
  * The SquirrelAPI BackEnd Application. The root of the rest API
  * @author Alex Johnson
@@ -74,6 +73,10 @@ public class SquirrelAPI {
         users = database;
     }
     
+    /**
+     * Handles get requests for JSON exam data
+     * @return 
+     */
     @GET
     @Produces("application/json")
     public String exam() {
@@ -81,6 +84,7 @@ public class SquirrelAPI {
         return c.getExam(null, 20, 1);
     }
     
+    // not implemented
     @PUT
     @Consumes("text/plain")
     public String help(String context) {
