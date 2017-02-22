@@ -1,7 +1,6 @@
 ### System/log files ###
 .DS_Store
 *.log
-.nb-gradle-properties
 
 ## Compiled files ###
 frontend/build/
@@ -10,11 +9,8 @@ backend/build/
 *.jar
 *.war
 
-## Gradle files ###
-.nb-gradle/
-.gradle/
-config/
-!gradle-wrapper.jar
-
 ## Grunt Files ##
 frontend/node_modules/
+frontend/nbproject/*
+
+backend/target/

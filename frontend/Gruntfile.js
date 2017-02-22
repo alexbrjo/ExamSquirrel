@@ -6,9 +6,7 @@ module.exports = function (grunt) {
             dist: 'build'
         },
         clean:{
-            build:{
-                src: 'build'
-            }
+            build: ['build/*']
         },
         concat: {
             options: {
@@ -56,6 +54,11 @@ module.exports = function (grunt) {
     grunt.registerTask(
         'build', 
         'cleans, copys to build folder and uglifies', 
+        ['clean', 'copy:build', 'concat:build', 'uglify:build']
+    );
+    grunt.registerTask(
+        'run', 
+        'builds and copies result to ../backend project', 
         ['clean', 'copy:build', 'concat:build', 'uglify:build', 'copy:dist']
     );
 };

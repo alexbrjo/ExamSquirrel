@@ -1,5 +1,6 @@
 {
   "name": "ExamSquirrel",
+  "description": "a tool for creating online practice exams with variable questions",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "~0.4.5",

@@ -18,6 +18,7 @@ function Squirrel () {
         var t = this;
         new ApiRequest(SEVLET_URL, function(q) {
             t.questionList = q;
+            console.log(q);
         });
     }
     
@@ -47,3 +48,4 @@ function Squirrel () {
 }
 
 var s = new Squirrel();
+s.exam("base", "physics");
