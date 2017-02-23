@@ -2,8 +2,7 @@
  * Defines a request to the API. 
  */
 function ApiRequest (SEVLET_URL, callback) {
-    var exam = null;
-    var questionArray = null;
+    var object = null;
     
     var jsonReq = new XMLHttpRequest();
     jsonReq.open('GET', SEVLET_URL);
@@ -19,10 +18,9 @@ function ApiRequest (SEVLET_URL, callback) {
         if (jsonReq.readyState !== 4) return; 
         
         var genStartTime = window.performance.now();
-        exam = JSON.parse(jsonReq.responseText);
-        questionArray = exam.questions;
+        object = JSON.parse(jsonReq.responseText);
         
-        callback(questionArray);
+        callback(object);
     };
 
     jsonReq.send();

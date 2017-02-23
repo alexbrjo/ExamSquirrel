@@ -5,10 +5,17 @@ import java.util.ArrayList;
 
 /**
  * Wraps all basic Database functionality. Ensures that migration to other 
- * Database software can be done with minimal effort.
+ * Database software will not be extremely painful.
  * @author Alex Johnson
  */
 public interface DatabaseDriver {
+    
+    /**
+     * Checks if a collection exists for a database
+     * @param collection the name of the collection to test existence of
+     * @return if the collection exists
+     */
+    public boolean has(String collection);
     
     /**
      * Gets all the Questions that for the given JSON name matches the given 
@@ -21,14 +28,11 @@ public interface DatabaseDriver {
     public ArrayList<Question> getAll (String collection, String name, String pattern);
     
     /**
-     * Gets all the Questions that for the given JSON name matches the given 
-     * pattern.
-     * @param collection the collection to query
-     * @param name the JSON name to match
-     * @param pattern the Regex pattern that the value must match 
-     * @param n the number of Questions to get
-     * @return the questions for 
+     * Adds a question to a collection
+     * @param question the question to add 
+     * @param collection the name of the collection to add to 
+     * @return if the collection exists
      */
-    public ArrayList<Question> pick (String collection, String name, 
-            String pattern, int n);
+    public void add(Question question, String collection);
+
 }

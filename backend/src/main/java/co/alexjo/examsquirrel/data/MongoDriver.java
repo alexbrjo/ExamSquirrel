@@ -1,17 +1,20 @@
 package co.alexjo.examsquirrel.data;
 
 import co.alexjo.examsquirrel.exam.Question;
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 
 /**
- * Wraps all MongoDatabase interactions to make migration to other Database
- * software less painful.
+ * Wraps all MongoDatabase interactions. Handles the 2 major databases:
+ *      - users
+ *      - problems, sorted by creator (user)
  * @author Alex Johnson
  */
 public class MongoDriver implements DatabaseDriver {
@@ -74,18 +77,37 @@ public class MongoDriver implements DatabaseDriver {
         }
         
         return questions;
+    } 
+    
+    /**
+     * Checks if a collection exists for a database
+     * @param collection the name of the collection to test existence of
+     * @return if the collection exists
+     */
+    @Override
+    public boolean has(String collection) {
+        Iterable<String> collections = dataBase.listCollectionNames();
+        for (String name : collections) {
+            if (collection.equalsIgnoreCase(name)) 
+                return true;
+        }
+        return false;
     }
     
     /**
-     * Gets n number of the Questions in a collection
-     * @param collection the collection to query
-     * @param name the name of the variable to match
-     * @param value the value to match
-     * @param n the number of Documents to pick
-     * @return an ArrayList of Questions
+     * Adds a Question to a collection 
      */
-    public ArrayList<Question> pick (String collection, String name, String value, int n) {
-        ArrayList<Question> questions = getAll(collection, name, value);
-        return questions;
+    @Override
+    public void add(Question question, String collection) {
+        MongoCollection c = dataBase.getCollection(collection);
+        Document doc = new Document();
+        doc.append("id", question.getId());
+        doc.append("topic", question.getId());
+        doc.append("content", question.getId());
+        doc.append("choices", question.getChoices());
+        doc.append("tips", question.getTips());
+        
+        c.insertOne(doc);
     }
+    
 }

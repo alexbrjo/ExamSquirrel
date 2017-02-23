@@ -1,6 +1,7 @@
 ### System/log files ###
 .DS_Store
 *.log
+nb-*
 
 ## Compiled files ###
 frontend/build/
