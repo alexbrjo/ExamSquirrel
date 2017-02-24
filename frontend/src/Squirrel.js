@@ -87,6 +87,7 @@ function Squirrel () {
         }
     }
     
+    // sets answer button mouse listeners 
     var ans_buttons = document.getElementsByClassName("answer");
     for (var i = 0; i < ans_buttons.length; i++) {
         ans_buttons[i].onmouseup = this.answer;

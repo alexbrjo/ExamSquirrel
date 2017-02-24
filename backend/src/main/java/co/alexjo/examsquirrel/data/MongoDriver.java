@@ -19,8 +19,10 @@ import org.bson.Document;
  */
 public class MongoDriver implements DatabaseDriver {
     
+    /** The database connection */
+    private MongoClient client;
     /** The Current Mongo Database connection */
-    MongoDatabase dataBase;
+    private MongoDatabase dataBase;
     
     /**
      * Creates a new Mongo Driver
@@ -41,13 +43,22 @@ public class MongoDriver implements DatabaseDriver {
      * @throws RuntimeException if there is an error connecting to the server
      */
     private MongoDatabase connect (String address, int port, String name) {
-        MongoClient client;
         try {
             client = new MongoClient(address, port);
         } catch (MongoException e) {
             throw new RuntimeException("Error connecting to server");
         }
         return client.getDatabase(name);
+    }
+    
+    /**
+     * Closes the database connection
+     * @return if the connect was closed successfully
+     */
+    @Override
+    public boolean close () {
+        client.close();
+        return true;
     }
     
     /**

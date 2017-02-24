@@ -3,6 +3,7 @@ package co.alexjo.examsquirrel;
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.data.MongoDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
+import co.alexjo.examsquirrel.exam.Exam;
 import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -11,35 +12,28 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 /**
- * The SquirrelAPI BackEnd Application. The root of the rest API
+ * The SquirrelAPI BackEnd Application. The exam REST API
  * @author Alex Johnson
  */
 @Path("/exam")
 public class SquirrelAPI {
     
-    /** The course database */
-    public DatabaseDriver courses;
-    /** The users database */
-    public DatabaseDriver users;
-            
+    /** The database's address */
+    public String address;
+    /** The database's port */
+    public int port;
+    /** A map of the controllers properties */ 
     private Map<String, String> prop;
     
     /**
-     * Constructs a new ExamGrindAPI. A RESTful Api that serves questions, 
-     * users and exams to the front end.
+     * Constructs a new ExamGrindAPI. A REST Api that serves questions and 
+     * exams to the front end.
      */
     public SquirrelAPI () {
-        
         // load properties
         loadProperties();
-        
-        String address = prop.get("db-address");
-        int port = Integer.parseInt(prop.get("db-port"));
-        System.out.println("Successfully connected to MongoDB on " + 
-                address + ":" + port);
-        
-        setCourses(new MongoDriver(address, port, prop.get("db-course")));
-        
+        address = prop.get("db-address");
+        port = Integer.parseInt(prop.get("db-port"));
     }
     
     /**
@@ -50,38 +44,16 @@ public class SquirrelAPI {
     }
     
     /**
-     * Sets the Course database for ExamGrindAPI
-     * @param database the course database
-     */
-    private void setCourses(DatabaseDriver database) {
-        if (database == null) {
-            throw new NullPointerException("Cannot set course database to null");
-        }
-        // Do other database validation checks
-        courses = database;
-    }
-    
-    /**
-     * Sets the User database for ExamGrindAPI
-     * @param database the course database
-     */
-    private void setUsers(DatabaseDriver database) {
-        if (database == null) {
-            throw new NullPointerException("Cannot set users database to null");
-        }
-        // Do other database validation checks
-        users = database;
-    }
-    
-    /**
      * Handles get requests for JSON exam data
      * @return 
      */
     @GET
     @Produces("application/json")
     public String exam() {
-        Course c = new Course(courses);
-        return c.getExam(null, 20, 1);
+        DatabaseDriver db = new MongoDriver(address, port, prop.get("db-course"));
+        String exam = Exam.create(db.getAll("physics", "", ""), 20, 1);
+        db.close();
+        return exam;
     }
     
     // not implemented

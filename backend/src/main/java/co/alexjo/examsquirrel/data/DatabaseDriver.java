@@ -18,6 +18,12 @@ public interface DatabaseDriver {
     public boolean has(String collection);
     
     /**
+     * Closes the database connection
+     * @return if there is not a database connection
+     */
+    public boolean close ();
+    
+    /**
      * Gets all the Questions that for the given JSON name matches the given 
      * pattern.
      * @param collection the collection to query

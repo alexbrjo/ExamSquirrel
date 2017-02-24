@@ -103,4 +103,26 @@ public class Exam {
         this.seed = seed;
     }
     
+    /**
+     * Generates an Exam using a Courses question catalog
+     * @param list the material to cover
+     * @param numberOfQuestions the number of questions
+     * @param seed the seed to use for generation
+     * @return the JSON object that represents an exam
+     */
+    public static String create (ArrayList<Question> list, int numberOfQuestions, int seed) {
+        
+        // Create Writer
+        StringWriter writer = new StringWriter();
+        JsonWriter out = new JsonWriter(writer);
+        
+        // Write JSON
+        out.writeStartDocument();
+        Exam exam = new Exam(list.size(), list, seed);
+        exam.print(out);
+        out.writeEndDocument();
+        
+        return writer.toString();
+    } 
+    
 }
