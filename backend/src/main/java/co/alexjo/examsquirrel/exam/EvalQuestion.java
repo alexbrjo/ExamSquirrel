@@ -68,7 +68,7 @@ public class EvalQuestion extends Question {
     private void eval () {
         try {
             ArrayList<String> initial = getChoices();
-            ArrayList<String> evaledChoices = new ArrayList<>();
+            evalChoices = new ArrayList<>();
         
             ScriptEngineManager manager = new ScriptEngineManager();
             ScriptEngine js = manager.getEngineByName("JavaScript");
@@ -76,15 +76,20 @@ public class EvalQuestion extends Question {
             evalContent = evalEmbedded(getContent(), js);
 
             for (int i = 0; i < initial.size(); i++) {
-//                evalChoices.add(evalEmbedded (initial.get(i), js));
+                evalChoices.add(evalEmbedded (initial.get(i), js));
             }
             
         } catch (QuestionFormatException e) {
             throw new IllegalArgumentException("Invalid format for question " + getId());
-        } 
+        }
     } 
     
     public String evalEmbedded (String container, ScriptEngine js) throws QuestionFormatException {
+        // if theres no script don't go on
+        if (!container.contains("$")) {
+            return container;
+        }
+
         // search entire String for scripts
         for (int i = 0; i < container.length(); i++) {
             // if start of script 
@@ -181,7 +186,7 @@ public class EvalQuestion extends Question {
         // The choices of the question, ALWAYS evaluated
         out.writeName("choices");
         out.writeStartArray();
-        for (String choice : getChoices()) {
+        for (String choice : evalChoices) {
             out.writeString(choice);
         }
         out.writeEndArray();
