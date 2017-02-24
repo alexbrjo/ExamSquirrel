@@ -1,22 +1,22 @@
-package co.alexjo.examsquirrel;
+package co.alexjo.examsquirrel.exam;
 
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.data.MongoDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
-import co.alexjo.examsquirrel.exam.Exam;
 import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
- * The SquirrelAPI BackEnd Application. The exam REST API
+ * The ExamAPI BackEnd Application. The exam REST API
  * @author Alex Johnson
  */
-@Path("/exam")
-public class SquirrelAPI {
+@Path("/oak")
+public class ExamAPI {
     
     /** The database's address */
     public String address;
@@ -26,10 +26,10 @@ public class SquirrelAPI {
     private Map<String, String> prop;
     
     /**
-     * Constructs a new ExamGrindAPI. A REST Api that serves questions and 
+     * Constructs a new ExamAPI. A REST API that serves questions and 
      * exams to the front end.
      */
-    public SquirrelAPI () {
+    public ExamAPI () {
         // load properties
         loadProperties();
         address = prop.get("db-address");
@@ -48,7 +48,7 @@ public class SquirrelAPI {
      * @return 
      */
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public String exam() {
         DatabaseDriver db = new MongoDriver(address, port, prop.get("db-course"));
         String exam = Exam.create(db.getAll("physics", "", ""), 20, 1);
@@ -58,7 +58,7 @@ public class SquirrelAPI {
     
     // not implemented
     @PUT
-    @Consumes("text/plain")
+    @Consumes(MediaType.APPLICATION_JSON)
     public String help(String context) {
         return "HELLO";
     }

@@ -25,3 +25,27 @@ ExamSquirrel
     |_README.md
     |_.gitignore
 ```
+
+Features
+--------------
+Planned URIs, other will be 404 or forwarded to root 
+```
+/
+/create/
+/exam/{examid}
+/user/{userid}
+```
+Planned API URIs
+```
+/api/exam?examid=0&seed=0&length=0
+/api/user?userid=0
+```
+
+Language mapping
+------------------
+For the most part only used in animations/pictures.
+```
+squirrel --> user
+oak --> exam
+acorn --> exam question
+```

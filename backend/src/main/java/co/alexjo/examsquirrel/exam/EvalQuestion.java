@@ -18,7 +18,7 @@ public class EvalQuestion extends Question {
     /** The text of the question */
     private String evalContent;
     /** The choices of the question, index 0 is the answer */
-    private ArrayList<String> evalChoices;
+    private ShuffledList<String> evalChoices;
     
     /** Variation variables from seed */
     private double[] vars;
@@ -68,17 +68,23 @@ public class EvalQuestion extends Question {
     private void eval () {
         try {
             ArrayList<String> initial = getChoices();
-            evalChoices = new ArrayList<>();
+            evalChoices = new ShuffledList<>();
         
             ScriptEngineManager manager = new ScriptEngineManager();
             ScriptEngine js = manager.getEngineByName("JavaScript");
 
             evalContent = evalEmbedded(getContent(), js);
 
+            String ans = "";
             for (int i = 0; i < initial.size(); i++) {
-                evalChoices.add(evalEmbedded (initial.get(i), js));
+                String eval = evalEmbedded (initial.get(i), js);
+                if (i == 0)
+                    ans = eval;
+                evalChoices.add(eval);
             }
             
+            answer = (char)('A' + evalChoices.indexOf(ans));
+            evalContent += answer;
         } catch (QuestionFormatException e) {
             throw new IllegalArgumentException("Invalid format for question " + getId());
         }

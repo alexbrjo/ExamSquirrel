@@ -1,7 +1,5 @@
 package co.alexjo.examsquirrel.exam;
 
-import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,7 +18,7 @@ public class Exam {
     /** Questions to use */
     ArrayList<Question> rawQuestions;
     /** Questions to use */
-    ArrayList<EvalQuestion> questions;
+    ShuffledList<EvalQuestion> questions;
     
     private int seed;
     
@@ -56,7 +54,7 @@ public class Exam {
         Random random = new Random(seed);
         
         // evaluate questions
-        ArrayList<EvalQuestion> evaled = new ArrayList<>();
+        ShuffledList<EvalQuestion> evaled = new ShuffledList<>();
         for (int i = 0; i < numberOfQuestions; i++) {
             evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble()));
         }

@@ -2,7 +2,6 @@ package co.alexjo.examsquirrel.exam;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 import java.util.Random;
 
 /**
@@ -10,11 +9,6 @@ import java.util.Random;
  * of its methods. ShuffledList can quickly collect objects and iterate 
  * through them in a random order. ShuffledList is not intended to store or
  * handle a large number of objects.
- * 
- * The user is not supposed to know the order of the elements in a ShuffledList 
- * so there is no get for index method. The correct way to access the shuffled 
- * elements is with a for each loop. Since there is no indices, to remove an 
- * object you have to have a reference to the object.
  * 
  * @author Alex Johnson
  * @param <T> the type of object stored in ShuffledList
@@ -103,6 +97,14 @@ public class ShuffledList<T> implements Iterable<T> {
     }
     
     /**
+     * Gets the index of an object in the list
+     * @return the integer index of the object in the list
+     */
+    public int indexOf (T o) {
+        return list.indexOf(o);
+    }
+    
+    /**
      * Removes an object from the List
      * @param element the object to remove
      */
@@ -139,46 +141,11 @@ public class ShuffledList<T> implements Iterable<T> {
      */
     @Override
     public Iterator<T> iterator() {
-        return new ShuffledIterator();
-    }
-    
-    /**
-     * Iterates through the shuffled list using a specific pattern
-     */
-    private class ShuffledIterator implements Iterator<T> {
-        /** The cursor of the iterator */
-        private int cursor;
+        // shuffle if enabled
+        if (shuffleOnNewIteration)
+            shuffle();
         
-        /**
-         * Constructs a new QuestionIterator.
-         */
-        public ShuffledIterator () {
-            if (shuffleOnNewIteration) shuffle();
-            cursor = 0;
-        }
-        
-        /**
-         * If the iterator has a next Question.
-         * @return true if the iterator has a next element; otherwise false
-         */
-        @Override
-        public boolean hasNext() {
-            return cursor < list.size();
-        }
-
-        /**
-         * Gets the next element in the list. Flips through the items.
-         * @return the next element in the list
-         */
-        @Override
-        public T next() {
-            if (hasNext()) {
-                T element = list.get(cursor);
-                cursor++;
-                return element;
-            } else {
-                throw new NoSuchElementException();
-            }
-        } 
+        // use list's iterator
+        return list.iterator();
     }
 }

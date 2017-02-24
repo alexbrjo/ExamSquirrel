@@ -21,26 +21,30 @@ function Squirrel () {
     /**
      * Very simple string hash so answers aren't stored as plain text. Same 
      * algorithm as the back end. This of course is replicable by the user, 
-     * but that is alright. Just exists so asnwers aren't plain text and to 
-     * create a disincentive to cheat. 
+     * but that is alright. Just exists to create a disincentive to cheat. 
+     * @param {String} str the string of text to hash
      */
-    function hashCode (str) {
+    var simpleHash = function (str) {
         var hash = 0;
         for (var i = 0; i < str.length; i++) {
             hash += str.charCodeAt(i) * prime;
         }
         return hash & hash;
-    }
+    };
     
     /**
-     * Compares hashes to check answer
+     * Compares hashes to check answer.
+     * 
+     * input -> check answer -[incorrect]-> negative animation
+     *             |
+     *             +-[correct]-> positive animation -> next question
      */
-    var thiz = this;
-    this.answer = function (e) {
+    var answer = function (e) {
         var a = e.srcElement.classList[0]; // should get correct letter 
-        if (questionList[i].answer === hashCode(questionList[i].id + a)) {
+        if (questionList[currentQuestion].answer === 
+                simpleHash(questionList[currentQuestion].id + a)) {
             correct++;
-            thiz.next();
+            next();
         } else {
             incorrect++;
         }
@@ -53,28 +57,29 @@ function Squirrel () {
         }
         document.getElementById("done").style.width = percent + "%";
        
-    }
+    };
     
     /**
      * Loads a problem set from the API and uses it to start an exam
      * @param {type} user the owner of the problem set
      * @param {String} set the problem set to request 
      */
-    this.loadExam = function(user, set) {
+    var loadExam = function(user, set) {
         new ApiRequest(SEVLET_URL, function(o) {
             questionList = o.questions;
             prime = o.prime;
+            next();
         });
-    }
+    };
     
     /**
      * Loads a problem set from the API and uses it for practice
      * @param {type} user the owner of the problem set
      * @param {String} set the problem set to request 
      */
-    this.practice = function (user, set) {alert("practice unsupported")}
+    var practice = function (user, set) {alert("practice unsupported");};
     
-    this.next = function () {
+    var next = function () {
         currentQuestion++;
         var q = questionList[currentQuestion];
         var qroot = document.getElementById("question");
@@ -85,17 +90,14 @@ function Squirrel () {
         for (var i = 0; i < q.choices.length; i++) {
             kids[i].innerHTML = q.choices[i];
         }
-    }
+    };
     
     // sets answer button mouse listeners 
     var ans_buttons = document.getElementsByClassName("answer");
     for (var i = 0; i < ans_buttons.length; i++) {
-        ans_buttons[i].onmouseup = this.answer;
+        ans_buttons[i].onmouseup = answer;
     }
+    loadExam("base", "physics");
 }
 
-var s;
-window.onload = function () {
-    s = new Squirrel();
-    s.loadExam("base", "physics");
-};
+window.onload = Squirrel;
