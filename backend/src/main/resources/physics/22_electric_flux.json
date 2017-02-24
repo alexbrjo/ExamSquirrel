@@ -3,6 +3,7 @@
         "id": "GuassLaw0",
         "topic": "Electric Flux",
         "content": "A thin wire is charged uniformly with a linear charge density of &lambda;. A closed cylindrical Gaussian surface is centered in the wire as shown (picture). Its radius is r and its length is L. Let E denote the magnitude of the field at the surface of the cylinder. Applying Gauss’ Law to this closed surface gives",
+        "variation": [[0, 0, 0]],
         "choices": [
             "E(2&pi;rL) = (&lambda;L)/&epsilon;<sub>0</sub>",
             "E(&pi;r<sup>2</sup>) = (&lambda;L)/&epsilon;<sub>0</sub>",
@@ -18,6 +19,7 @@
         "id": "GuassLaw1",
         "topic": "Electric Flux",
         "content": "Three point charges are located as shown. A Gaussian surface S encloses two of the charges. According to Gauss’ Law, the net electric flux through S is",
+        "variation": [[0, 0, 0]],
         "choices": [
             "4Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
             "3Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
@@ -32,13 +34,14 @@
     {
         "id": "GuassLaw2",
         "topic": "Electric Flux",
-        "content": "A uniform electric field of magnitude 5000 N/C is directed perpendicular to a rectangular surface of area 0.50 m<sup>2</sup>. The electric flux through this surface is",
+        "content": "A uniform electric field of magnitude ${5000} N/C is directed perpendicular to a rectangular surface of area ${0.50} m<sup>2</sup>. The electric flux through this surface is",
+        "variation": [[0, 0, 0]],
         "choices": [
             "zero",
-            "2500 N m<sup>2</sup>/C",
-            "1000 N m<sup>2</sup>/C",
-            "1.0×10<sup>-4</sup> N m<sup>2</sup>/C",
-            "1.0×10<sup>4</sup> N m<sup>2</sup>/C"
+            "${2500} N m<sup>2</sup>/C",
+            "${1000} N m<sup>2</sup>/C",
+            "${1.0}×10<sup>-4</sup> N m<sup>2</sup>/C",
+            "${1.0}×10<sup>4</sup> N m<sup>2</sup>/C"
         ],
         "tips": [
             "Remember flux equals Q<sub>encl</sub>/&epsilon;<sub>0</sub>"

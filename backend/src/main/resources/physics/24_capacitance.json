@@ -2,20 +2,20 @@
     {
         "id": "Electrodes0",
         "topic": "Resistance",
-        "content": "A copper wire of length L and cross sectional area A is cut lengthwise into 8 identical wires also of length L but each of area A/8. If the resistance of the original wire is R, the resistance of each of the 8 wires is",
-        "choices": ["R/8", "4R", "R/4", "64R", "8R"],
+        "content": "A copper wire of length L and cross sectional area A is cut lengthwise into 8 identical wires also of length L but each of area A/${8}. If the resistance of the original wire is R, the resistance of each of the ${8} wires is",
+        "choices": ["R/${8}", "${4}R", "R/${4}", "${64}R", "${8}R"],
         "tips": ["V = IR"]
     },
     {
         "id": "Electrodes0",
         "topic": "Resistance",
-        "content": "Two resistors are connected in series as shown below. If the voltage difference (V<sub>A</sub> − V<sub>B</sub>) = 20 V, the magnitude and direction of the current in the 2 $omega; resistor is",
+        "content": "Two resistors are connected in series as shown below. If the voltage difference (V<sub>A</sub> − V<sub>B</sub>) = ${20} V, the magnitude and direction of the current in the ${2} $omega; resistor is",
         "choices": [
-            "4 A to the right (from A to B)", 
-            "17 A to the right (from A to B)", 
-            "4 A to the left (from B to A)",
-            "17 A to the left (from B to A)",
-            "3.3 A to the right (from A to B)"
+            "${4} A to the right (from A to B)", 
+            "${17} A to the right (from A to B)", 
+            "${4} A to the left (from B to A)",
+            "${17} A to the left (from B to A)",
+            "${3.3} A to the right (from A to B)"
             ],
         "tips": ["V = IR"]
     }

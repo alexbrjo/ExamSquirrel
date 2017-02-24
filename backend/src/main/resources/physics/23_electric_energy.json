@@ -2,16 +2,17 @@
     {
         "id": "ElectricPotientalEnergy0",
         "topic": "Electric Potiental Energy",
-        "content": "A proton of charge +e is located at the origin. The amount of work necessary to bring an electron from a great distance to within 2 × 10<sup>−10</sup> m of the proton is",
+        "content": "A proton of charge +e is located at the origin. The amount of work necessary to bring an electron from a great distance to within ${2} × 10<sup>−10</sup> m of the proton is",
+        "variation": [[0, 0, 0]],
         "choices": [
-            "2.8×10<sup>−18</sup>J",
-            "-2.8×10<sup>−18</sup>J",
-            "1.2×10<sup>−18</sup>J",
-            "-1.2×10<sup>−18</sup>J",
-            "-6.0×10<sup>−19</sup>J"
+            "${2.8}×10<sup>−18</sup>J",
+            "${-2.8}×10<sup>−18</sup>J",
+            "${1.2}×10<sup>−18</sup>J",
+            "${-1.2}×10<sup>−18</sup>J",
+            "${-6.0}×10<sup>−19</sup>J"
         ],
         "tips": [
-            ""
+            "Rember."
         ]
     }
 ]

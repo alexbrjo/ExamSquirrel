@@ -3,6 +3,7 @@
         "id": "Induction0",
         "topic": "Electric Charge",
         "content": "A metal sphere is connected to the ground. A plastic rod with a net positive charge is brought near it without quite touching it. The ground connection is then removed, while keeping the rod in place. Finally, the rod is removed. The best description of what happens is that",
+        "variation": [],
         "choices": [
             "The sphere has a negative net charge",
             "The sphere has zero net charge and every part of its surface is neutral",
@@ -25,6 +26,9 @@
             "Rod: ${a * 0.16}&mu;C; Fur: 0&mu;C",
             "Rod: ${a * -0.08}&mu;C; Fur: ${a * 0.08}&mu;C",
             "Rod: ${a * 0.16}&mu;C; Fur: ${-a * 0.16}&mu;C"
+        ],
+        "tips": [
+            "Remember."
         ]
     },
     {
@@ -38,18 +42,25 @@
             "−1.0×10<sup>15</sup> (i.e., electrons are lost, not accumulated)",
             "2.0×10<sup>15</sup> ",
             "−2.0×10<sup>15</sup> "
+        ],
+        "tips": [
+            "Remember."
         ]
     },
     {
         "id": "Conduction0",
         "topic": "Electric Charge",
         "content": "A positive object touches a neutral electroscope, and the leaves separate. The object is removed and the leaves remain separated. Then a negative object is brought near the electroscope, but does not touch it. What happens to the leaves?",
+        "variation": [],
         "choices": [
             "They move closer together.",
             "They separate further.",
             "They are unaffected.",
             "The question cannot be answered without further information.",
             "They fold back aganist the electroscope."
+        ],
+        "tips": [
+            "Remember."
         ]
     },
     {
@@ -63,6 +74,9 @@
             "${a * 0.9375}&mu;C",
             "${a * -0.9375}&mu;C",
             "${a * 0.9375}&mu;C"
+        ],
+        "tips": [
+            "Remember."
         ]
     }
 ]

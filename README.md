@@ -1,4 +1,4 @@
-ExamSquirrel - InDev
+ExamSquirrel - pre-indev
 ==================================================
 
 A tool for creating online practice tests with variable questions
@@ -29,11 +29,16 @@ ExamSquirrel
 Features
 --------------
 Planned URIs, other will be 404 or forwarded to root 
-```
-/
-/create/
-/exam/{examid}
-/user/{userid}
+/			- the splash page if not logged in, dashboard if logged in
+/signup			- sign up for an account
+/login			- log in to an existing account
+/create			- create a new exam
+/search			- search through existing exams
+/exam/{examid}		- take an exam for an id
+/practice/{examid}	- practice with material from an exam by id
+/profile		- same as /user/{me} 
+/profile/edit		- edits the user's profile
+/user/{userid}		- view a user's profile
 ```
 Planned API URIs
 ```
