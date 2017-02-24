@@ -70,10 +70,13 @@ public class Exam {
     public void print(JsonWriter out) {
         
         generateExam(seed);
+        out.writeName("prime");
+        out.writeInt32(53);
+        
         out.writeName("questions");
         out.writeStartArray();
         for (EvalQuestion e : questions) {
-            e.print(out);
+            e.print(out, 53);
         }
         out.writeEndArray();
     }

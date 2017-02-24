@@ -95,7 +95,6 @@ a {
 #grade > div {
     display: block;
     position: absolute;
-    width: 80%;
     height: 20px;
     margin: 0;
     padding: 0;
@@ -103,13 +102,14 @@ a {
     border-radius: 10px;
 }
 
-#grade .done {
-    width: 40%;
+#done {
+    width: 0%;
     border-radius: 10px 0px 0px 10px;
     background-image: url("correct.png");
 }
 
-#grade .left {
+#left {
+    width: 80%;
     background-image: url("incorrect.png");
 }
 

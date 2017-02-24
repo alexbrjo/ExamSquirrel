@@ -44,24 +44,22 @@ public class EvalQuestion extends Question {
         super(q.getId(), q.getTopic(), q.getContent(), q.getChoices(), 
                 q.getTips(), q.getVariation());
         this.personalRandom = seed;
+        answer = 'A';
         eval();
     }
     
     /**
      * The answer of the seed
-     * @param seed the seed that is used to find the answer
-     * @return the int of the answer choice 0 - A, 1 - B, etc
+     * @param prime the prime used by the exams to hash answers
+     * @return the hashed answer
      */
-    public static int getAns (double seed) {
-        /*if (seed < 0 || seed > 1) {
-            throw new IllegalArgumentException("Invalid double, must be 0 through 1");
+    public int answer (int prime) {
+        String str = getId() + answer;
+        int hash = 0;
+        for (int i = 0; i < str.length(); i++) {
+            hash += str.charAt(i) * prime;
         }
-        String a = "ABCDE";
-        for (int i = 0; i < 3; i++) {
-            String org = a.substring(i);
-        }
-        return a.indexOf("A");*/
-        return 0;
+        return hash & hash;
     }
     
     /**
@@ -164,7 +162,7 @@ public class EvalQuestion extends Question {
      * content, choices and variation.
      * @param out the JsonWriter to write to
      */
-    public void print (JsonWriter out) {
+    public void print (JsonWriter out, int prime) {
         // start the Question object
         out.writeStartDocument();
         
@@ -187,6 +185,10 @@ public class EvalQuestion extends Question {
             out.writeString(choice);
         }
         out.writeEndArray();
+        
+        // The unqiue id of the question, NEVER evaluated
+        out.writeName("answer");
+        out.writeInt32(answer(prime));
         
         // The tips of the question, NEVER evaluated
         out.writeName("tips");
