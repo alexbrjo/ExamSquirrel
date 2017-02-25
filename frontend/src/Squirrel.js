@@ -11,7 +11,7 @@ function Squirrel () {
     
     // constants
     var scriptStartTime = window.performance.now();
-    var SEVLET_URL = 'api/exam?seed=1';
+    var SEVLET_URL = 'api/exam';
     
     // front-end state data
     var correct = 0;

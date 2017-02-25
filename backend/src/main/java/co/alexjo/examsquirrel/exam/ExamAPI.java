@@ -3,6 +3,8 @@ package co.alexjo.examsquirrel.exam;
 import co.alexjo.examsquirrel.data.DatabaseDriver;
 import co.alexjo.examsquirrel.data.MongoDriver;
 import co.alexjo.examsquirrel.data.PropertiesIO;
+import java.util.ArrayList;
+import org.bson.Document;
 import java.util.Map;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,7 +17,7 @@ import javax.ws.rs.core.MediaType;
  * The ExamAPI BackEnd Application. The exam REST API
  * @author Alex Johnson
  */
-@Path("/oak")
+@Path("exam")
 public class ExamAPI {
     
     /** The database's address */
@@ -49,17 +51,33 @@ public class ExamAPI {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String exam() {
+    public String getExam() {
         DatabaseDriver db = new MongoDriver(address, port, prop.get("db-course"));
-        String exam = Exam.create(db.getAll("physics", "", ""), 20, 1);
+        String exam = Exam.create(db.getAll("math", "", ""), 20, 1);
         db.close();
-        return exam;
+        return exam + " ";
     }
     
-    // not implemented
+    /**
+     * Adds a question to a collection
+     * @param json the exam object to store
+     * @return the added object
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public String help(String context) {
-        return "HELLO";
+    public String addExam(String json) {
+        
+        Document doc = Document.parse(json);
+        DatabaseDriver db = new MongoDriver(address, port, prop.get("db-course"));
+        String id = doc.getString("id");
+        String topic = doc.getString("topic");
+        String content = doc.getString("content");
+        ArrayList<String> choices = (ArrayList<String>) doc.getOrDefault("choices", new ArrayList<String>());
+        ArrayList<String> tips = (ArrayList<String>) doc.getOrDefault("tips", new ArrayList<String>());
+                
+        Question q = new Question(id, topic, content, choices, tips, new double[1][2]);
+        db.add(q, "math");
+        
+        return json;
     }
 }

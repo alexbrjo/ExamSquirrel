@@ -1,6 +1,5 @@
 package co.alexjo.examsquirrel.exam;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -82,9 +81,9 @@ public class EvalQuestion extends Question {
                     ans = eval;
                 evalChoices.add(eval);
             }
-            
+            // find index of answer in shuffled choices
             answer = (char)('A' + evalChoices.indexOf(ans));
-            evalContent += answer;
+            
         } catch (QuestionFormatException e) {
             throw new IllegalArgumentException("Invalid format for question " + getId());
         }

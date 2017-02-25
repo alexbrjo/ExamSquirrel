@@ -15,9 +15,8 @@ function ApiRequest (SEVLET_URL, callback) {
          *  3	downloading, .responseText has some data
          *  4	download complete
          */
-        if (jsonReq.readyState !== 4) return; 
+        if (jsonReq.readyState !== 4 || jsonReq.status != 200) return; 
         
-        var genStartTime = window.performance.now();
         object = JSON.parse(jsonReq.responseText);
         
         callback(object);
@@ -25,3 +24,28 @@ function ApiRequest (SEVLET_URL, callback) {
 
     jsonReq.send();
 }
+
+/**
+ * Defines a request to the API. 
+ */
+function ApiPut (SEVLET_URL, content, callback) {
+    var object = null;
+    
+    var jsonPut = new XMLHttpRequest();
+    jsonPut.open('PUT', SEVLET_URL);
+    jsonPut.setRequestHeader('Content-Type', 'application/json');
+    
+    jsonPut.onload = function() {
+        if (jsonPut.status !== 200) return; 
+        
+        var genStartTime = window.performance.now();
+        object = JSON.parse(jsonPut.responseText);
+        
+        callback(object);
+    };
+
+    
+    jsonPut.send(JSON.stringify(content));
+}
+
+var a = ApiPut;

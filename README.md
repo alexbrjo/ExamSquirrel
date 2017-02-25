@@ -3,8 +3,7 @@ ExamSquirrel - pre-indev
 
 A tool for creating online practice tests with variable questions
 --------------------------------------------------
-Currently uses: Grunt, Maven, Jersey, a REST Api, MongoDB
-Future dependencies: SQL, MathJax
+Currently uses: Grunt, Maven, Jersey, a REST Api, MongoDB. Future dependencies: SQL, MathJax
 
 Setting up the project for developers
 --------------------------------------------------
