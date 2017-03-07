@@ -14,6 +14,8 @@ function ApiRequest (SEVLET_URL, callback) {
          *  2	send() has been called and heads and status are available
          *  3	downloading, .responseText has some data
          *  4	download complete
+         *  
+         *  Must have completed download with HTTP response OK
          */
         if (jsonReq.readyState !== 4 || jsonReq.status != 200) return; 
         
@@ -26,7 +28,11 @@ function ApiRequest (SEVLET_URL, callback) {
 }
 
 /**
- * Defines a request to the API. 
+ * Defines a request to the API.
+ * @param {type} SEVLET_URL
+ * @param {type} content
+ * @param {type} callback
+ * @returns {undefined}
  */
 function ApiPut (SEVLET_URL, content, callback) {
     var object = null;

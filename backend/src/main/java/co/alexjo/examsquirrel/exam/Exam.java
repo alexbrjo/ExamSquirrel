@@ -9,7 +9,7 @@ import org.bson.json.JsonWriter;
  * An exam
  * @author Alex Johnson
  */
-public class Exam {
+public class Exam implements JsonTranslatable {
     
     /** The maximum number of questions */
     private static final int MAX_QUESTIONS = 50;
@@ -19,8 +19,10 @@ public class Exam {
     ArrayList<Question> rawQuestions;
     /** Questions to use */
     ShuffledList<EvalQuestion> questions;
-    
+    /** The seed of the random */
     private int seed;
+    /** The prime number used to create all the answer hashes */
+    private int prime = 53;
     
     /**
      * Constructs a new exam. For a certain number of questions and topics 
@@ -56,7 +58,7 @@ public class Exam {
         // evaluate questions
         ShuffledList<EvalQuestion> evaled = new ShuffledList<>();
         for (int i = 0; i < numberOfQuestions; i++) {
-            evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble()));
+            evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble(), prime));
         }
         
         questions = evaled;
@@ -65,16 +67,17 @@ public class Exam {
     /**
      * Creates a JSON object (root is an Array) for the exam for a given seed
      */
+    @Override
     public void print(JsonWriter out) {
         
         generateExam(seed);
         out.writeName("prime");
-        out.writeInt32(53);
+        out.writeInt32(prime);
         
         out.writeName("questions");
         out.writeStartArray();
         for (EvalQuestion e : questions) {
-            e.print(out, 53);
+            e.print(out);
         }
         out.writeEndArray();
     }

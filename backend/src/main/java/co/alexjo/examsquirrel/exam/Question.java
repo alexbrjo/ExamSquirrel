@@ -2,6 +2,7 @@ package co.alexjo.examsquirrel.exam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.bson.json.JsonWriter;
 
 /**
  * The Question document structure from a database. Has unevaluated Question
@@ -13,7 +14,7 @@ import java.util.Arrays;
  * 
  * @author Alex Johnson
  */
-public class Question {
+public class Question implements JsonTranslatable {
     
     /** The id of the question */
     private String id;
@@ -165,6 +166,59 @@ public class Question {
             throw new IllegalArgumentException("variation cannot be null");
         }
         this.variation = d;
+    }
+
+    /**
+     * Prints a question object to Json.
+     * @param out the writer to print to
+     */
+    @Override
+    public void print(JsonWriter out) {
+        // start the Question object
+        out.writeStartDocument();
+        
+        // The unqiue id of the question
+        out.writeName("id");
+        out.writeString(id);
+        
+        // The topic of the question
+        out.writeName("topic");
+        out.writeString(topic);
+        
+        // The content of the question
+        out.writeName("content");
+        out.writeString(content);
+        
+        // The choices of the question
+        out.writeName("choices");
+        out.writeStartArray();
+        for (String choice : choices) {
+            out.writeString(choice);
+        }
+        out.writeEndArray();
+        
+        // The tips of the question
+        out.writeName("tips");
+        out.writeStartArray();
+        for (String tip : tips) {
+            out.writeString(tip);
+        }
+        out.writeEndArray();
+        
+        // The variation of the question
+        out.writeName("variation");
+        out.writeStartArray();
+        for (double[] variable : variation) {
+            out.writeStartArray();
+            for (double d : variable) {
+                out.writeDouble(d);
+            }
+            out.writeEndArray();
+        }
+        out.writeEndArray();
+        
+        // Ends the Question object
+        out.writeEndDocument();
     }
     
     /**

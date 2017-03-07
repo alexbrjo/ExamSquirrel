@@ -38,7 +38,7 @@ Planned URIs, other will be 404 or forwarded to root
 /profile		- same as /user/{me} 
 /profile/edit		- edits the user's profile
 /user/{userid}		- view a user's profile
-```
+
 Planned API URIs
 ```
 /api/exam?examid=0&seed=0&length=0

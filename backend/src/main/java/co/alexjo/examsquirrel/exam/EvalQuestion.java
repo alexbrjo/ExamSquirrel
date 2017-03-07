@@ -23,46 +23,38 @@ public class EvalQuestion extends Question {
     private double[] vars;
     /** The answer of the question */
     private char answer;
-    
+    /** */
+    private int answerhash;
+    /** The random of the question, created from the exam random number */
     private double personalRandom;
     
     /**
      * Creates an EvalQuestion for a question.
-     * @param q 
+     * @param question the unevaluated question to evaluate 
      */
-    public EvalQuestion (Question q) {
-        this(q, 0);
+    public EvalQuestion (Question question) {
+        this(question, 0, 1);
     }
     
     /**
      * Creates an EvalQuestion for a question and seed.
-     * @param q the question to create
+     * @param question the unevaluated question to evaluate 
      * @param seed the next random number from the program's random
+     * @prime prime the prime number that all the exams answer hashes are
+     *     created from
      */
-    public EvalQuestion (Question q, double seed) {
-        super(q.getId(), q.getTopic(), q.getContent(), q.getChoices(), 
-                q.getTips(), q.getVariation());
+    public EvalQuestion (Question question, double seed, int prime) {
+        super(question.getId(), question.getTopic(), question.getContent(), 
+                question.getChoices(), question.getTips(), question.getVariation());
+        
         this.personalRandom = seed;
-        answer = 'A';
+        answer = 'A'; // correct answer is always stored at index 0 in the choices array
         eval();
+        setAnswerhash(prime);
     }
     
     /**
-     * The answer of the seed
-     * @param prime the prime used by the exams to hash answers
-     * @return the hashed answer
-     */
-    public int answer (int prime) {
-        String str = getId() + answer;
-        int hash = 0;
-        for (int i = 0; i < str.length(); i++) {
-            hash += str.charAt(i) * prime;
-        }
-        return hash & hash;
-    }
-    
-    /**
-     * Creates an 
+     * Evaluates the content of the question and the answer choices.
      */
     private void eval () {
         try {
@@ -139,7 +131,7 @@ public class EvalQuestion extends Question {
      * @param seed the seed to obtain the number from
      * @return gets a varied variable 
      */
-    public double getVar (int index, double seed) {
+    private double getVar (int index, double seed) {
         double[][] fullVariation = getVariation();
         if (fullVariation.length == 0) {
             return -1;
@@ -166,13 +158,27 @@ public class EvalQuestion extends Question {
     }
     
     /**
+     * The answer of the seed
+     * @param prime the prime used by the exams to hash answers
+     */
+    private void setAnswerhash (int prime) {
+        String str = getId() + answer;
+        int hash = 0;
+        for (int i = 0; i < str.length(); i++) {
+            hash += str.charAt(i) * prime;
+        }
+        answerhash = hash & hash;
+    }
+    
+    /**
      * Writes Json for an Evaluated question. Uses Json writer instead of 
      * mapping library to better control what the user gets to see. Writes the 
      * Question variables id, topic and tips and the EvalQuestion variables
      * content, choices and variation.
      * @param out the JsonWriter to write to
      */
-    public void print (JsonWriter out, int prime) {
+    @Override
+    public void print (JsonWriter out) {
         // start the Question object
         out.writeStartDocument();
         
@@ -198,7 +204,7 @@ public class EvalQuestion extends Question {
         
         // The unqiue id of the question, NEVER evaluated
         out.writeName("answer");
-        out.writeInt32(answer(prime));
+        out.writeInt32(answerhash);
         
         // The tips of the question, NEVER evaluated
         out.writeName("tips");
