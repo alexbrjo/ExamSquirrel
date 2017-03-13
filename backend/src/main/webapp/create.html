@@ -7,27 +7,40 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="rsc/exam.css">
         <link rel="stylesheet" href="rsc/client.css">
+        <link rel="stylesheet" href="rsc/form.css">
         <link rel="stylesheet" href="rsc/nav-bar.css">
         
-    <script type="text/javascript"  src="rsc/examMaker.min.js"></script>
+        <script type="text/javascript"  src="rsc/examMaker.min.js"></script>
     </head>
     <body>
         <div id="nav-bar">
             <a href='/ExamSquirrel/'>Exam Squirrel</a>
         </div>
         <div id="main-content">
-            <div id="question_maker">
-                <form action="javascript: console.log('hi');">
-                    Question <br>
-                    id <input type="text" name="ident" value="Mickey">
-                    topic <input type="text" name="topic" value="quadratic formula">
-                    content <input type="text" name="contet" value="What is x when x<sup>2</sup> = 4">
-                    answer <input type="text" name="answer" value="2">
-                    incorrect choice <input type="text" name="choice1" value="8">
-                    incorrect choice <input type="text" name="choice2" value="4">
-                    incorrect choice <input type="text" name="choice3" value="64">
+            <div id="question-wrapper">
+                <form id="question-form" action="javascript: formSubmit();">
+                    <div id="question-info-form">
+                        <div id="question-id-form">
+                            <p>id</p>
+                            <input type="text" id="question-id" placeholder="quadForm0">
+                        </div>
+                        <div id="question-topic-form">
+                            <p>topic</p>
+                            <input type="text" id="question-topic" placeholder="quadratic formula">
+                        </div>
+                    </div>
+                    <p>Question content</p>
+                    <textarea id="question-content" placeholder="What is x when x<sup>2</sup> = 4"></textarea>
+                    <p>Answers, first is the correct answer</p>
+                    <div id="answers">
+                        <input class="answer" type="text" name="answer" placeholder="correct">
+                        <input class="answer" type="text" name="choice" placeholder="incorrect">
+                        <input class="answer" type="text" name="choice" placeholder="incorrect">
+                        <input class="answer" type="text" name="choice" placeholder="incorrect">
+                        <input class="answer" type="text" name="choice" placeholder="incorrect">
+                    </div>
                     <input type="submit" value="Submit">
-                    </form> 
+                </form> 
             </div>
         </div>
         <div id="other-content">

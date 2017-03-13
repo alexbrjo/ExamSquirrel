@@ -1,0 +1,43 @@
+#question-info-form {
+    display: inline-block;
+}
+
+#question-info-form > div {
+    display: inline-block;
+    width: 300px;
+}
+
+input[type=text], textarea{
+    width: 100%;
+    padding: 10px 16px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 1px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px #BBB;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #81bfff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #BBB;
+}
+
+input[type=submit]:hover {
+    background-color: #619fdf;
+}
+
+input[name=id] {
+    width: 250px;
+}
+
+input[name=topic] {
+    width: 250px;
+}

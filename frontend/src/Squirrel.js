@@ -99,3 +99,23 @@ function Squirrel () {
     }
     loadExam("base", "physics");
 }
+
+function formSubmit () {
+    var form = document.getElementById("question-form");
+    var question = { 
+            id: document.getElementById("question-id").value,
+            topic: document.getElementById("question-topic").value,
+            content: document.getElementById("question-content").value,
+            choices: null,
+            tips: null,
+            variation: null
+        };
+    
+    question.choices = [];
+    var ans = document.getElementById("answers").children;
+    for (var i = 0; i < ans.length; i++) {
+        question.choices[i] = ans[i].value;
+    }
+        
+    console.log(question);
+}
