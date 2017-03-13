@@ -60,7 +60,7 @@ public class ExamAPI {
     @Produces(MediaType.APPLICATION_JSON)
     public String getExam() {
         DatabaseDriver db = new MongoDriver(address, port, prop.get("db-course"));
-        String exam = Exam.create(db.getAll("user-1", "", ""), 20, 1);
+        String exam = Exam.create(db.getAll("physics", "", ""), 20, 1);
         db.close();
         return exam + " ";
     }

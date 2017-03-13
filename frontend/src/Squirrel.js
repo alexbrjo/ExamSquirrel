@@ -99,5 +99,3 @@ function Squirrel () {
     }
     loadExam("base", "physics");
 }
-
-window.onload = Squirrel;
