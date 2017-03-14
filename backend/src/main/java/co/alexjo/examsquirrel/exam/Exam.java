@@ -2,6 +2,7 @@ package co.alexjo.examsquirrel.exam;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import org.bson.json.JsonWriter;
 
@@ -16,9 +17,7 @@ public class Exam implements JsonTranslatable {
     /** Number of questions */
     private int numberOfQuestions;
     /** Questions to use */
-    ArrayList<Question> rawQuestions;
-    /** Questions to use */
-    ShuffledList<EvalQuestion> questions;
+    List<Question> questions;
     /** The seed of the random */
     private int seed;
     /** The prime number used to create all the answer hashes */
@@ -41,8 +40,8 @@ public class Exam implements JsonTranslatable {
      * @param questions which topics to generate questions on
      * @param seed the random number seed
      */
-    public Exam (int numberOfQuestions, ArrayList<Question> questions, int seed) {
-        rawQuestions = questions;
+    public Exam (int numberOfQuestions, List<Question> questions, int seed) {
+        this.questions = questions;
         setNumberOfQuestions(numberOfQuestions);
         setSeed(seed);
     }
@@ -54,14 +53,10 @@ public class Exam implements JsonTranslatable {
     private void generateExam (int seed) {
         
         Random random = new Random(seed);
-        
         // evaluate questions
-        ShuffledList<EvalQuestion> evaled = new ShuffledList<>();
         for (int i = 0; i < numberOfQuestions; i++) {
-            evaled.add(new EvalQuestion(rawQuestions.get(i), random.nextDouble(), prime));
+            questions.get(i).eval((int)random.nextDouble(), prime);
         }
-        
-        questions = evaled;
     }
     
     /**
@@ -76,7 +71,7 @@ public class Exam implements JsonTranslatable {
         
         out.writeName("questions");
         out.writeStartArray();
-        for (EvalQuestion e : questions) {
+        for (Question e : questions) {
             e.print(out);
         }
         out.writeEndArray();
@@ -90,7 +85,7 @@ public class Exam implements JsonTranslatable {
      */
     private void setNumberOfQuestions (int numberOfQuestions) {
         if (numberOfQuestions < 0 || numberOfQuestions > MAX_QUESTIONS ||
-                numberOfQuestions > rawQuestions.size()) {
+                numberOfQuestions > questions.size()) {
             throw new IllegalArgumentException("Invalid number of questions");
         }
         this.numberOfQuestions = numberOfQuestions;
@@ -111,7 +106,7 @@ public class Exam implements JsonTranslatable {
      * @param seed the seed to use for generation
      * @return the JSON object that represents an exam
      */
-    public static String create (ArrayList<Question> list, int numberOfQuestions, int seed) {
+    public static String create (List<Question> list, int numberOfQuestions, int seed) {
         
         // Create Writer
         StringWriter writer = new StringWriter();

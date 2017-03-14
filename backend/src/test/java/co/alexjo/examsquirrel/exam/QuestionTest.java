@@ -1,6 +1,5 @@
 package co.alexjo.examsquirrel.exam;
 
-import co.alexjo.examsquirrel.exam.Question;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -27,6 +26,8 @@ public class QuestionTest {
     private ArrayList<String> TIPS = new ArrayList<>();
     /** The lowest number to vary the question from */
     private double[][] VARIATION;
+    /** The answer of the question */
+    private int[] ANSWER;
     
     /**
      * Sets up default arrays
@@ -45,6 +46,9 @@ public class QuestionTest {
         VARIATION[0] = new double[]{ 0.0, 10.0, 1.0}; // 0, 1, 2 ... 10
         VARIATION[1] = new double[]{ 2.0,  3.0, 1.0}; // 2, 3
         VARIATION[2] = new double[]{10.0, 20.0, 0.1}; // 10.0, 10.1, 10.2 ... 19.9, 20.0
+        
+        ANSWER = new int[1];
+        ANSWER[0] = 0;
     }
     
     /**
@@ -53,7 +57,7 @@ public class QuestionTest {
     @Test
     public void testNewQuestion() {
         
-        Question q1  = new Question(ID, TOPIC, CONTENT, CHOICES, TIPS, VARIATION);
+        Question q1  = new Question(ID, TOPIC, CONTENT, CHOICES, TIPS, VARIATION, ANSWER);
         assertNotNull("Question equals null", q1);
         assertEquals("ID was initialized", ID, q1.getId());
         assertEquals("Topic was initialized", TOPIC, q1.getTopic());
@@ -62,7 +66,7 @@ public class QuestionTest {
         assertEquals("Tips wasn't initialized", TIPS, q1.getTips());
         assertArrayEquals("Variation wasn't initialized",VARIATION, q1.getVariation());
         
-        Question q2  = new Question("9ABCDEFG", TOPIC, CONTENT, CHOICES, TIPS, VARIATION);
+        Question q2  = new Question("9ABCDEFG", TOPIC, CONTENT, CHOICES, TIPS, VARIATION, ANSWER);
         assertNotNull("Question equals null", q2);
         assertEquals("ID was initialized", "9ABCDEFG", q2.getId());
         assertEquals("Topic was initialized", TOPIC, q2.getTopic());

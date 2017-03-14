@@ -1,7 +1,10 @@
 package co.alexjo.examsquirrel.exam;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Random;
 
 /**
@@ -13,7 +16,7 @@ import java.util.Random;
  * @author Alex Johnson
  * @param <T> the type of object stored in ShuffledList
  */
-public class ShuffledList<T> implements Iterable<T> {
+public class ShuffledList<T> implements Iterable<T> { //, List<T> {
     
     /** The ArrayList of elements */
     private ArrayList<T> list;

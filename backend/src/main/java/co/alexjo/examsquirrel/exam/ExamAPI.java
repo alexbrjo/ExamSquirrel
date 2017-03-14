@@ -82,7 +82,7 @@ public class ExamAPI {
         ArrayList<String> choices = (ArrayList<String>) doc.getOrDefault("choices", new ArrayList<String>());
         ArrayList<String> tips = (ArrayList<String>) doc.getOrDefault("tips", new ArrayList<String>());
                 
-        Question q = new Question(id, topic, content, choices, tips, new double[1][2]);
+        Question q = new Question(id, topic, content, choices, tips, new double[1][2], new int[3]);
         db.add(q, "math");
         
         return json;

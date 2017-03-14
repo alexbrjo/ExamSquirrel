@@ -82,7 +82,7 @@ public class MongoDriver implements DatabaseDriver {
                 ArrayList<String> choices = (ArrayList<String>) o.getOrDefault("choices", new ArrayList<String>());
                 ArrayList<String> tips = (ArrayList<String>) o.getOrDefault("tips", new ArrayList<String>());
                 
-                questions.add(new Question(id, topic, content, choices, tips, new double[1][2]));
+                questions.add(new Question(id, topic, content, choices, tips, new double[1][2], new int[3]));
                
             }
         }

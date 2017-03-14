@@ -2,6 +2,7 @@ package co.alexjo.examsquirrel.exam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.bson.json.JsonWriter;
 
 /**
@@ -24,12 +25,14 @@ public class Question implements JsonTranslatable {
     /** The text of the question */
     private String content;
     /** The choices of the question, index 0 is the answer */
-    private ArrayList<String> choices;
+    private List<String> choices;
     /** Tips for solving the question */
-    private ArrayList<String> tips;
+    private List<String> tips;
     
-    /** The lowest number to vary the question from */
+    /** The limits and interval of variation */
     private double[][] variation;
+    /** The answer of the question */
+    private int[] answer;
     
     /**
      * Creates a 
@@ -40,8 +43,8 @@ public class Question implements JsonTranslatable {
      * @param tips Tips for solving the question
      * @param variation The lowest number to vary the question from
      */
-    public Question (String id, String topic, String content, ArrayList<String> choices, 
-            ArrayList<String> tips, double[][] variation) {
+    public Question (String id, String topic, String content, List<String> choices, 
+            List<String> tips, double[][] variation, int[] answer) {
         super();
         
         setId(id);
@@ -50,7 +53,121 @@ public class Question implements JsonTranslatable {
         setChoices(choices);
         setTips(tips);
         setVariation(variation);
+        setAnswer(answer);
     }
+    
+    /**
+     * Evaluates the content of the question and the answer choices. 
+     * @param q
+     * @param seed
+     * @param prime
+     * @return 
+     */
+    public void eval (int seed, int prime) {
+        String evalContent = "";
+        List<String> evalChoices = new ArrayList<>();
+        int[] evalAnswer = new int[1];
+        
+        try {
+            List<String> initial = choices;
+
+            // evaluate the content
+            evalContent = EvalQuestion.evalEmbedded(this, content, seed);
+
+            // evaluate each answer choice
+            String ans = "";
+            for (int i = 0; i < initial.size(); i++) {
+                String eval = EvalQuestion.evalEmbedded (this, initial.get(i), seed);
+                if (i == 0)
+                    ans = eval;
+                evalChoices.add(eval);
+            }
+            
+            // find index of answer in shuffled choices
+            String str = id + (char)('A' + evalChoices.indexOf(ans));
+            int hash = 0;
+            for (int i = 0; i < str.length(); i++) {
+                hash += str.charAt(i) * prime;
+            }
+            evalAnswer = new int[1];
+            evalAnswer[0] = hash & hash;
+            
+        } catch (QuestionFormatException e) {
+            throw new IllegalArgumentException("Invalid format for question " + id);
+        }
+        
+        setContent(evalContent);
+        setChoices(evalChoices);
+        setAnswer(evalAnswer);
+    } 
+    
+    /**
+     * Prints a question object to Json.
+     * @param out the writer to print to
+     */
+    @Override
+    public void print(JsonWriter out) {
+        // start the Question object
+        out.writeStartDocument();
+        
+        // The unqiue id of the question
+        out.writeName("id");
+        out.writeString(id);
+        
+        // The topic of the question
+        out.writeName("topic");
+        out.writeString(topic);
+        
+        // The content of the question
+        out.writeName("content");
+        out.writeString(content);
+        
+        // The choices of the question
+        out.writeName("choices");
+        out.writeStartArray();
+        for (String choice : choices) {
+            out.writeString(choice);
+        }
+        out.writeEndArray();
+        
+        // The answer(s) of the questions
+        out.writeStartArray();
+        for (int i : answer) {
+            out.writeInt32(i);
+        }
+        out.writeEndArray();
+        
+        // The tips of the question
+        out.writeName("tips");
+        out.writeStartArray();
+        for (String tip : tips) {
+            out.writeString(tip);
+        }
+        out.writeEndArray();
+        
+        // The variation of the question
+        out.writeName("variation");
+        out.writeStartArray();
+        for (double[] variable : variation) {
+            out.writeStartArray();
+            for (double d : variable) {
+                out.writeDouble(d);
+            }
+            out.writeEndArray();
+        }
+        out.writeEndArray();
+        
+        // Ends the Question object
+        out.writeEndDocument();
+    }
+    
+    /**********************************************************************\
+     *                                                                    *
+     *                                                                    *
+     *                 GETTERS, SETTERS, OBJECT OVERRIDES                 *
+     *                                                                    *
+     *                                                                    *
+    \**********************************************************************/
     
     /**
      * Gets the id of the question.
@@ -80,7 +197,7 @@ public class Question implements JsonTranslatable {
      * The choices of the question
      * @return the ArrayList of choices 
      */
-    public ArrayList<String> getChoices () {
+    public List<String> getChoices () {
         return choices;
     }
     
@@ -88,7 +205,7 @@ public class Question implements JsonTranslatable {
      * The tips of the question
      * @return the ArrayList of Tips
      */
-    public ArrayList<String> getTips () {
+    public List<String> getTips () {
         return tips;
     }
     
@@ -98,6 +215,14 @@ public class Question implements JsonTranslatable {
      */
     public double[][] getVariation () {
         return variation;
+    }
+    
+    /**
+     * Gets the answers of the question
+     * @return an array of answers
+     */
+    public int[] getAnswer () {
+        return answer;
     }
     
     /**
@@ -138,7 +263,7 @@ public class Question implements JsonTranslatable {
      * Sets the choices to given ArrayList<String>
      * @param choices the choices to set
      */
-    private void setChoices (ArrayList<String> choices) {
+    private void setChoices (List<String> choices) {
         if (choices == null) {
             throw new IllegalArgumentException("choices cannot be null");
         }
@@ -149,7 +274,7 @@ public class Question implements JsonTranslatable {
      * Sets the tips to given ArrayList<String>
      * @param tips the tips to set
      */
-    private void setTips (ArrayList<String> tips) {
+    private void setTips (List<String> tips) {
         if (tips == null) {
             throw new IllegalArgumentException("tips cannot be null");
         }
@@ -167,60 +292,20 @@ public class Question implements JsonTranslatable {
         }
         this.variation = d;
     }
-
-    /**
-     * Prints a question object to Json.
-     * @param out the writer to print to
-     */
-    @Override
-    public void print(JsonWriter out) {
-        // start the Question object
-        out.writeStartDocument();
-        
-        // The unqiue id of the question
-        out.writeName("id");
-        out.writeString(id);
-        
-        // The topic of the question
-        out.writeName("topic");
-        out.writeString(topic);
-        
-        // The content of the question
-        out.writeName("content");
-        out.writeString(content);
-        
-        // The choices of the question
-        out.writeName("choices");
-        out.writeStartArray();
-        for (String choice : choices) {
-            out.writeString(choice);
-        }
-        out.writeEndArray();
-        
-        // The tips of the question
-        out.writeName("tips");
-        out.writeStartArray();
-        for (String tip : tips) {
-            out.writeString(tip);
-        }
-        out.writeEndArray();
-        
-        // The variation of the question
-        out.writeName("variation");
-        out.writeStartArray();
-        for (double[] variable : variation) {
-            out.writeStartArray();
-            for (double d : variable) {
-                out.writeDouble(d);
-            }
-            out.writeEndArray();
-        }
-        out.writeEndArray();
-        
-        // Ends the Question object
-        out.writeEndDocument();
-    }
     
+    /**
+     * Sets the answer of the question
+     */
+    private void setAnswer (int[] answer) {
+        if (answer == null) {
+            throw new IllegalArgumentException("Answer is null");
+        }
+        if (answer.length < 1) {
+            throw new IllegalArgumentException("Question has no answer");
+        }
+        this.answer = answer;
+    }
+
     /**
      * Creates a String representation of a Question.
      * @return a String representation of a Question.
