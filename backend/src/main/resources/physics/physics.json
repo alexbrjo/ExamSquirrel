@@ -1,0 +1,364 @@
+[
+    {
+        "id": "Induction0",
+        "topic": "Electric Charge",
+        "content": "A metal sphere is connected to the ground. A plastic rod with a net positive charge is brought near it without quite touching it. The ground connection is then removed, while keeping the rod in place. Finally, the rod is removed. The best description of what happens is that",
+        "variation": [],
+        "choices": [
+            "The sphere has a negative net charge",
+            "The sphere has zero net charge and every part of its surface is neutral",
+            "The sphere has zero net charge but induced charges are on the surface with the negative induced charge closest to the rod",
+            "The sphere has zero net charge but induced charges are on the surface with the positive induced charge closest to the rod",
+            "The sphere has a positive net charge"
+        ],
+        "tips": []
+    },
+    {
+        "id": "StaticFriction0",
+        "topic": "Electric Charge",
+        "content": "A neutral plastic rod is rubbed with a neutral piece of fur. If ${a}×10<sup>12</sup> electrons are transferred to the rod by friction, the charge on each item is:",
+        "variation": [[5.0, 15.0, 0.1]],
+        "choices": [
+            "Rod: ${a * -0.16}&mu;C; Fur: ${a * 0.16}&mu;C",
+            "Rod: ${a * -0.16}&mu;C; Fur: 0&mu;C",
+            "Rod: ${a * 0.16}&mu;C; Fur: 0&mu;C",
+            "Rod: ${a * -0.08}&mu;C; Fur: ${a * 0.08}&mu;C",
+            "Rod: ${a * 0.16}&mu;C; Fur: ${-a * 0.16}&mu;C"
+        ],
+        "tips": []
+    },
+    {
+        "id": "StaticFriction1",
+        "topic": "Electric Charge",
+        "content": "A person scuffs her feet on a wool rug on a dry day, accumulating a net charge of −160&mu;C. The number of excess electrons that she accumulates is",
+        "variation": [[5.0, 15.0, 0.1]],
+        "choices": [
+            "−1.0×10<sup>14</sup> ",
+            "1.0×10<sup>15</sup> ",
+            "−1.0×10<sup>15</sup> (i.e., electrons are lost, not accumulated)",
+            "2.0×10<sup>15</sup> ",
+            "−2.0×10<sup>15</sup> "
+        ],
+        "tips": []
+    },
+    {
+        "id": "Conduction0",
+        "topic": "Electric Charge",
+        "content": "A positive object touches a neutral electroscope, and the leaves separate. The object is removed and the leaves remain separated. Then a negative object is brought near the electroscope, but does not touch it. What happens to the leaves?",
+        "variation": [],
+        "choices": [
+            "They move closer together.",
+            "They separate further.",
+            "They are unaffected.",
+            "The question cannot be answered without further information.",
+            "They fold back aganist the electroscope."
+        ],
+        "tips": []
+    },
+    {
+        "id": "Induction0",
+        "topic": "Electric Charge",
+        "content":"A neutral piece of metal contains exactly 6×10<sup>24</sup> electrons and an equal number of protons. If we add ${a}×10<sup>13</sup> electrons by induction, the sphere’s net charge will be",
+        "variation": [[2.0, 6.0, 1.0]],
+        "choices": [
+            "${a * -0.625}&mu;C",
+            "${a * 0.625}&mu;C",
+            "${a * 0.9375}&mu;C",
+            "${a * -0.9375}&mu;C",
+            "${a * 0.9375}&mu;C"
+        ],
+        "tips": []
+    },
+    {
+        "id": "FieldFromForce0",
+        "topic": "Electric Field",
+        "content": "A negative ${50}&mu;C point charge is placed at a point P, where it experiences a net electrostatic force of ${100}N in the positive x direction. The electric field at P is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "${2.0}×10<sup>6</sup>N/C in the negative x direction ",
+            "${2.0}×10<sup>6</sup>N/C in the positive x direction ",
+            "${5.0}×10<sup>−3</sup>N/C in the negative x direction ",
+            "${5.0}×10<sup>−3</sup>N/C in the positive x direction",
+            "${5.0}×10<sup>−7</sup>N/C in the positive x direction"
+        ],
+        "tips": []
+    },
+    {
+        "id": "ParallelPlatesField0",
+        "topic": "Electric Field",
+        "content": "An electron with velocity v<sub>0</sub> enters a region of uniform electric field E as shown below. It travels parallel to E for a distance d, then comes to rest. The magnitude of the electric field is", 
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "E = mv<sub>0</sub> / ed",
+            "E = ev<sub>0</sub><sup>2</sup> / md",
+            "E = ed<sub>0</sub><sup>2</sup> / 2m",
+            "E = m<sub>0</sub><sup>2</sup> / ed",
+            "E = m<sub>0</sub><sup>2</sup> / (2ed)"
+        ],
+        "tips": []
+    },
+    {
+        "id": "ArcQuartersOfCharge0",
+        "topic": "Electric Field",
+        "content": "Charge that is uniformly distributed over one quarter arc of a circle produces a field of magnitude E<sub>1</sub> at the center of the arc. In the diagram below, the heavy solid lines represent positively charged arcs, the broken heavy lines negatively charged arcs, and the light lines neutral arcs. The magnitude of the charge is the same on the positively and negatively charged arcs. The diagram that produces the largest electric field at the center of the circle is", 
+        "variation": [[0, 0, 0]],
+        "choices": ["A", "B", "C", "D", "C"],
+        "tips": [
+            "Electric field lines always point from positive to negative",
+            "You can use parallelism to simiply the problem"
+        ]
+    },
+    {
+        "id": "FieldFromVoltage0",
+        "topic": "Electric Field",
+        "content": "A ${35} cm diameter conducting sphere is charged to +${700} V relative to V = 0 at infinity. The electric field at the surface of the sphere is", 
+        "variation": [[0, 0, 0], [0, 0, 0]],
+        "choices": [
+            "${2.0}×10<sup>3</sup> N/C directed outward",
+            "${2.0}×10<sup>3</sup> N/C directed inward",
+            "${4.5}×10<sup>3</sup> N/C directed outward",
+            "${4.5}×10<sup>3</sup> N/C directed inward",
+            "${180} N/C directed outward"
+        ],
+        "tips": [
+            "Electric field lines always point from positive to negative"
+        ]
+    },
+    {
+        "id": "1DPointChargesForce0",
+        "topic": "Electric Force",
+        "content": "Four point charges lie on the x-axis at x=−0.3m, 0m, 0.3m and 0.6m as shown below.The magnitude of the net force on the 30 μC charge at x = 0 is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "${30}N",
+            "${150}N",
+            "${90}N",
+            "${60}N",
+            "${120}N"
+        ],
+        "tips": [
+            "Make sure you check your signs and constant values.",
+            "Use Coulomb's law to determine the Force from each charge.",
+            "Use vector addition to determine the net Force."
+        ]
+    },
+    {
+        
+        "id": "GuassLaw0",
+        "topic": "Electric Flux",
+        "content": "A thin wire is charged uniformly with a linear charge density of &lambda;. A closed cylindrical Gaussian surface is centered in the wire as shown (picture). Its radius is r and its length is L. Let E denote the magnitude of the field at the surface of the cylinder. Applying Gauss’ Law to this closed surface gives",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "E(2&pi;rL) = (&lambda;L)/&epsilon;<sub>0</sub>",
+            "E(&pi;r<sup>2</sup>) = (&lambda;L)/&epsilon;<sub>0</sub>",
+            "E(&pi;r<sup>2</sup>L) = (&lambda;&pi;r<sup>2</sup>)/&epsilon;<sub>0</sub>",
+            "E(rL) = (&lambda;L)/&epsilon;<sub>0</sub>",
+            "E(&pi;r<sup>2</sup>L) = (&lambda;L)/&epsilon;<sub>0</sub>"
+        ],
+        "tips": [
+            "Remember flux equals Q<sub>encl</sub>/&epsilon;<sub>0</sub>"
+        ]
+    },
+    {
+        "id": "GuassLaw1",
+        "topic": "Electric Flux",
+        "content": "Three point charges are located as shown. A Gaussian surface S encloses two of the charges. According to Gauss’ Law, the net electric flux through S is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "4Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
+            "3Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
+            "Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
+            "6Q<sub>encl</sub>/&epsilon;<sub>0</sub>",
+            "-Q<sub>encl</sub>/&epsilon;<sub>0</sub>"
+        ],
+        "tips": [
+            "Remember flux equals Q<sub>encl</sub>/&epsilon;<sub>0</sub>"
+        ]
+    },
+    {
+        "id": "GuassLaw2",
+        "topic": "Electric Flux",
+        "content": "A uniform electric field of magnitude ${5000} N/C is directed perpendicular to a rectangular surface of area ${0.50} m<sup>2</sup>. The electric flux through this surface is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "zero",
+            "${2500} N m<sup>2</sup>/C",
+            "${1000} N m<sup>2</sup>/C",
+            "${1.0}×10<sup>-4</sup> N m<sup>2</sup>/C",
+            "${1.0}×10<sup>4</sup> N m<sup>2</sup>/C"
+        ],
+        "tips": [
+            "Remember flux equals Q<sub>encl</sub>/&epsilon;<sub>0</sub>"
+        ]
+    },
+    {
+        "id": "ElectricPotientalEnergy0",
+        "topic": "Electric Potiental Energy",
+        "content": "A proton of charge +e is located at the origin. The amount of work necessary to bring an electron from a great distance to within ${2} × 10<sup>−10</sup> m of the proton is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "${2.8}×10<sup>−18</sup>J",
+            "${-2.8}×10<sup>−18</sup>J",
+            "${1.2}×10<sup>−18</sup>J",
+            "${-1.2}×10<sup>−18</sup>J",
+            "${-6.0}×10<sup>−19</sup>J"
+        ],
+        "tips": []
+    },
+    {
+        "id": "ConductingSphereVoltage0",
+        "topic": "Electric Potiential",
+        "content": "A ${35} cm diameter conducting sphere is charged to +${700} V relative to V = 0 at infinity. The electric field at the surface of the sphere is",
+        "variation": [[0, 0, 0]],
+        "choices": [
+            "${2}.0×10<sup>3</sup>N/C directed outward ",
+            "${2}.0×10<sup>3</sup>N/C directed inward ",
+            "${2}.0×10<sup>3</sup>N/C directed inward ",
+            "${4.5}×10<sup>3</sup>N/C directed inward ",
+            "${180} N/C directed outward"
+        ],
+        "tips": [
+            "Make sure you check your signs and constant values.",
+            "Use Coulomb's law to determine the Force from each charge.",
+            "Use vector addition to determine the net Force."
+        ]
+    },
+    {
+        "id": "Electrodes0",
+        "topic": "Resistance",
+        "content": "A copper wire of length L and cross sectional area A is cut lengthwise into 8 identical wires also of length L but each of area A/${8}. If the resistance of the original wire is R, the resistance of each of the ${8} wires is",
+        "choices": ["R/${8}", "${4}R", "R/${4}", "${64}R", "${8}R"],
+        "tips": ["V = IR"]
+    },
+    {
+        "id": "Electrodes0",
+        "topic": "Resistance",
+        "content": "Two resistors are connected in series as shown below. If the voltage difference (V<sub>A</sub> − V<sub>B</sub>) = ${20} V, the magnitude and direction of the current in the ${2} $omega; resistor is",
+        "choices": [
+            "${4} A to the right (from A to B)", 
+            "${17} A to the right (from A to B)", 
+            "${4} A to the left (from B to A)",
+            "${17} A to the left (from B to A)",
+            "${3.3} A to the right (from A to B)"
+            ],
+        "tips": ["V = IR"]
+    },
+    {
+        "id": "Electrodes0",
+        "topic": "Electric Current",
+        "content": "A spark jumps between two electrodes, transferring a charge of 5 &mu;C in ${2}×10<sup>${−3}</sup>s. The constant current I that would transfer the same charge in the same time is",
+        "choices": [
+            "${800} A", "${400} A", "${200} A",
+            "${2.5}×10<sup>${−3}</sup> A",
+            "${1.0}×10<sup>${−8}</sup> A"
+        ],
+        "tips": [
+            "V = IR"
+        ]
+    },
+    {
+        "id": "VoltageDisapation0",
+        "topic": "Electric Current",
+        "content": "A hot plate is made from a coil with a resistance R = ${20} &mu;. When operated with a voltage of ${100} V, the power it dissipates is",
+        "choices": [
+            "${5} W", "${500} W", "${2000} W", "${2500} W", "${2}×10<sup>5</sup> W"
+        ],
+        "tips": [
+            "V = IR"
+        ]
+    },
+    {
+        "id": "RCcircuit0",
+        "topic": "Electric Current",
+        "content": "The resistor and capacitor in a series RC circuit have values R = ${4000}&omega; and C = ${5}&mu;F, respectively. The capacitor is charged by a ${20}V battery. The time constant for charging is",
+        "choices": [
+            "&tau; = ${4.0} s", 
+            "&tau; = ${8.0}×10<sup>8</sup> s", 
+            "&tau; = ${1.3}×10<sup>−9</sup> s", 
+            "&tau; = ${100} s", 
+            "&tau; = ${0.020} s"
+        ],
+        "tips": [
+            "V = IR"
+        ]
+    },
+    {
+        "id": "Electrodes0",
+        "topic": "Resistance",
+        "content": "A copper wire of length L and cross sectional area A is cut lengthwise into 8 identical wires also of length L but each of area A/8. If the resistance of the original wire is R, the resistance of each of the 8 wires is",
+        "choices": ["R/8", "4R", "R/4", "64R", "8R"],
+        "tips": ["V = IR"]
+    },
+    {
+        "id": "Electrodes0",
+        "topic": "Resistance",
+        "content": "Two resistors are connected in series as shown below. If the voltage difference (V<sub>A</sub> − V<sub>B</sub>) = 20 V, the magnitude and direction of the current in the 2 $omega; resistor is",
+        "choices": [
+            "4 A to the right (from A to B)", 
+            "17 A to the right (from A to B)", 
+            "4 A to the left (from B to A)",
+            "17 A to the left (from B to A)",
+            "3.3 A to the right (from A to B)"
+            ],
+        "tips": ["V = IR"]
+    },
+    {
+        "id": "MagneticField0",
+        "topic": "Magnetic Force",
+        "content": "A proton (q = 1.6×10<sup>-19</sup> C) is traveling with a velocity v = 2.0×10<sup>6</sup> m/s parallel to a uniform magnetic field B of magnitude 0.5 T. The magnetic force on the proton is",
+        "choices": [
+            "8.0×10<sup>−18</sup> N", 
+            "0 N", 
+            "5.6×10<sup>−13</sup> N", 
+            "1.0×10<sup>6</sup> N", 
+            "3.2×10<sup>−13</sup> N"
+        ],
+        "tips": []
+    },
+    {
+        "id": "Magnetic_Force0",
+        "topic": "Magnetic Force",
+        "content": "A straight wire carries a 20 A current in a uniform magnetic field B of magnitude 0.5 T. B is directed at 53° to the current, as shown. The magnitude of the force on a 5 m long segment of the wire is",
+        "choices": [ "40 N", "30 N", "50 N", "6.0 N", "8.0 N" ],
+        "tips": []
+    },
+    {
+        "id": "MagneticField0",
+        "topic": "Magnetic Force",
+        "content": "Two infinite straight wires carry currents of 30 and 40 A, respectively, in the directions shown below. They are parallel, and separated by 0.05 m. The force on a 2 m long segment of the wire carrying 40 A is",
+        "choices": [
+            "9.6×10<sup>−3</sup> N, to the right", 
+            "9.6×10<sup>−3</sup> N, to the left", 
+            "94.8×10<sup>−3</sup> N, to the left", 
+            "4.8×10<sup>−3</sup> N, to the right", 
+            "zero"
+        ],
+        "tips": []
+    },
+    {
+        "id": "Magnetism0",
+        "topic": "Magnetism",
+        "content": "A bar magnet produces a magnetic field B directed to the right at a point to the left of the magnet, as shown below. The poles of the magnet are identified as",
+        "choices": [
+            "X = N and Y = N", 
+            "X = S and Y = S", 
+            "X = S and Y = N", 
+            "X = N and Y = S", 
+            "X = N and Y is not a pole"
+        ],
+        "tips": []
+    },
+    {
+        "id": "MagneticField0",
+        "topic": "Magnetism",
+        "content": "A planar 20-turn coil carries a current of 5 A in a uniform magnetic field B of magnitude 0.8 T. The dimensions of the coil are 0.1 m × 0.2 m. Given that the plane of the coil is parallel to B as shown below, the magnitude of the torque on the coil is",
+        "choices": [
+            "0.080 N m", 
+            "1.6 N m", 
+            "0.32 N m", 
+            "2.0 N m", 
+            "zero"
+        ],
+        "tips": []
+    }
+]
